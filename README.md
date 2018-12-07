@@ -3,7 +3,7 @@ Swift练习demo
 
 效果演示
 
-![](http://wx3.sinaimg.cn/large/a9c4d5f6gy1fxy7cy46o8g20gw0u0b2k.gif)
+![](https://wx3.sinaimg.cn/large/a9c4d5f6gy1fxy7cy46o8g20gw0u0b2k.gif)
 
 iOS11之后，导航栏可以设置这样变大的效果。
 
@@ -16,7 +16,7 @@ iOS11之后，导航栏可以设置这样变大的效果。
 
 向右滑动菜单：
 
-![](http://wx2.sinaimg.cn/large/a9c4d5f6gy1fxy7k04rq5g20gw0u07wr.gif)
+![](https://wx2.sinaimg.cn/large/a9c4d5f6gy1fxy7k04rq5g20gw0u07wr.gif)
 
 向左滑动菜单：
 
