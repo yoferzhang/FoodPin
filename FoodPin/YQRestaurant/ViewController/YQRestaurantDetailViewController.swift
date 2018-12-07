@@ -53,6 +53,7 @@ class YQRestaurantDetailViewController: UIViewController {
         typeLabel.frame = CGRect(x: typeLabel.frame.origin.x, y: locationLabel.frame.maxY + 5, width: typeLabel.frame.width, height: typeLabel.frame.height)
         view.addSubview(typeLabel)
         
+        //试试
     }
     
 
