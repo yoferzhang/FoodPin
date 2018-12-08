@@ -3,7 +3,7 @@ Swift练习demo
 
 效果演示
 
-![](https://wx3.sinaimg.cn/large/a9c4d5f6gy1fxy7cy46o8g20gw0u0b2k.gif)
+![](https://github.com/yoferzhang/blogImage/blob/master/2018120801.gif)
 
 iOS11之后，导航栏可以设置这样变大的效果。
 
@@ -16,12 +16,12 @@ iOS11之后，导航栏可以设置这样变大的效果。
 
 向右滑动菜单：
 
-![](https://wx2.sinaimg.cn/large/a9c4d5f6gy1fxy7k04rq5g20gw0u07wr.gif)
+![](https://github.com/yoferzhang/blogImage/blob/master/2018120802.gif)
 
 向左滑动菜单：
 
-![](http://wx3.sinaimg.cn/large/a9c4d5f6gy1fxy7naz4dkg20gw0u0x6w.gif)
+![](https://github.com/yoferzhang/blogImage/blob/master/2018120803.gif)
 
 tableView，actionSheet
 
-![](http://wx3.sinaimg.cn/large/a9c4d5f6gy1fxy7os4lafg20gw0u07wq.gif)
+![](https://github.com/yoferzhang/blogImage/blob/master/2018120804.gif)
