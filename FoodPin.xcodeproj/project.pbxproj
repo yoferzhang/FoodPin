@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E04D165121BE007600CE4810 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D165021BE007600CE4810 /* Restaurant.swift */; };
 		E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD5EF219281910067E227 /* AppDelegate.swift */; };
 		E0ACD5F2219281910067E227 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD5F1219281910067E227 /* ViewController.swift */; };
 		E0ACD5F5219281910067E227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ACD5F3219281910067E227 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E04D165021BE007600CE4810 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E0ACD5EC219281910067E227 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ACD5EF219281910067E227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0ACD5F1219281910067E227 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E04D164F21BDFDF200CE4810 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E04D165021BE007600CE4810 /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E0ACD5E3219281910067E227 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		E0ACD601219288070067E227 /* YQRestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				E04D164F21BDFDF200CE4810 /* Model */,
 				E0DAA9FC21BA5BB60062E980 /* ViewController */,
 				E0ACD6022192881E0067E227 /* View */,
 			);
@@ -172,6 +183,7 @@
 			files = (
 				E0ACD608219289270067E227 /* YQRestaurantCellTableViewCell.swift in Sources */,
 				E0ACD604219288370067E227 /* YQRestaurantView.swift in Sources */,
+				E04D165121BE007600CE4810 /* Restaurant.swift in Sources */,
 				E0DAAA0121BA5C430062E980 /* YQRestaurantDetailViewController.swift in Sources */,
 				E0ACD5F2219281910067E227 /* ViewController.swift in Sources */,
 				E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */,

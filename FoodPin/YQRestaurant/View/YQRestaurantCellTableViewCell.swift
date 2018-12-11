@@ -57,21 +57,20 @@ class YQRestaurantCellTableViewCell: UITableViewCell {
         
     }
     
-    func setData(name: String, location: String, type: String, imageName: String) -> Void {
-        thumbnailImageView.image = UIImage(named: imageName)
+    func setData(restaurant: Restaurant) {
+        thumbnailImageView.image = UIImage(named: restaurant.name)
         
-        nameLabel.text = name
+        nameLabel.text = restaurant.name
         nameLabel.sizeToFit()
         nameLabel.frame = CGRect(x: thumbnailImageView.frame.origin.x + thumbnailImageView.frame.size.width + 12, y: thumbnailImageView.frame.origin.y - 2, width: nameLabel.frame.size.width, height: nameLabel.frame.size.height)
         
-        locationLabel.text = location
+        locationLabel.text = restaurant.location
         locationLabel.sizeToFit()
         locationLabel.frame = CGRect(x: nameLabel.frame.origin.x, y: nameLabel.frame.origin.y + nameLabel.frame.size.height, width: locationLabel.frame.size.width, height: locationLabel.frame.size.height)
         
-        typeLabel.text = type
+        typeLabel.text = restaurant.type
         typeLabel.sizeToFit()
         typeLabel.frame = CGRect(x: nameLabel.frame.origin.x, y: locationLabel.frame.origin.y + locationLabel.frame.size.height, width: typeLabel.frame.size.width, height: typeLabel.frame.size.height)
-        
     }
 
 }

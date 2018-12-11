@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         self.initRestaurantView()
 
     }
-    
-    //显示状态栏
+        
+    /// 显示状态栏
     override var prefersStatusBarHidden: Bool {
         return false
     }
