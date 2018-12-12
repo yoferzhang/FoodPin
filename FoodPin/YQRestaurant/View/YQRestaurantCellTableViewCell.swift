@@ -6,9 +6,15 @@
 //  Copyright © 2018 yoferzhang. All rights reserved.
 //
 
+// Swift 添加常量的方法
+private struct Constants {
+    static let marginOfLabel: CGFloat = 12
+}
+
 import UIKit
 
 class YQRestaurantCellTableViewCell: UITableViewCell {
+
 
     var restaurantNeme: String!
     
@@ -35,7 +41,7 @@ class YQRestaurantCellTableViewCell: UITableViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     func initUI() -> Void {
@@ -43,34 +49,38 @@ class YQRestaurantCellTableViewCell: UITableViewCell {
         thumbnailImageView = UIImageView(frame: CGRect(x: 12, y: 12, width: 60, height: 60))
         thumbnailImageView.layer.cornerRadius = thumbnailImageView.frame.size.width * 0.5
         thumbnailImageView.layer.masksToBounds = true
-        self.addSubview(thumbnailImageView)
+        self.contentView.addSubview(thumbnailImageView)
         
         nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        self.addSubview(nameLabel)
+        self.contentView.addSubview(nameLabel)
+
         
         locationLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.addSubview(locationLabel)
+        self.contentView.addSubview(locationLabel)
+
         
         typeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.addSubview(typeLabel)
-        
+        self.contentView.addSubview(typeLabel)
+
     }
     
     func setData(restaurant: Restaurant) {
         thumbnailImageView.image = UIImage(named: restaurant.name)
         
+        let labelWidth = self.bounds.width - thumbnailImageView.frame.maxX - Constants.marginOfLabel - Constants.marginOfLabel;
+        
         nameLabel.text = restaurant.name
         nameLabel.sizeToFit()
-        nameLabel.frame = CGRect(x: thumbnailImageView.frame.origin.x + thumbnailImageView.frame.size.width + 12, y: thumbnailImageView.frame.origin.y - 2, width: nameLabel.frame.size.width, height: nameLabel.frame.size.height)
+        nameLabel.frame = CGRect(x: thumbnailImageView.frame.origin.x + thumbnailImageView.frame.size.width + Constants.marginOfLabel, y: thumbnailImageView.frame.origin.y - 2, width: labelWidth, height: nameLabel.frame.size.height)
         
         locationLabel.text = restaurant.location
         locationLabel.sizeToFit()
-        locationLabel.frame = CGRect(x: nameLabel.frame.origin.x, y: nameLabel.frame.origin.y + nameLabel.frame.size.height, width: locationLabel.frame.size.width, height: locationLabel.frame.size.height)
+        locationLabel.frame = CGRect(x: nameLabel.frame.origin.x, y: nameLabel.frame.origin.y + nameLabel.frame.size.height, width: labelWidth, height: locationLabel.frame.size.height)
         
         typeLabel.text = restaurant.type
         typeLabel.sizeToFit()
-        typeLabel.frame = CGRect(x: nameLabel.frame.origin.x, y: locationLabel.frame.origin.y + locationLabel.frame.size.height, width: typeLabel.frame.size.width, height: typeLabel.frame.size.height)
+        typeLabel.frame = CGRect(x: nameLabel.frame.origin.x, y: locationLabel.frame.origin.y + locationLabel.frame.size.height, width: labelWidth, height: typeLabel.frame.size.height)
     }
 
 }

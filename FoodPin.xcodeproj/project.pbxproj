@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E04D165121BE007600CE4810 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D165021BE007600CE4810 /* Restaurant.swift */; };
+		E04D167621C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */; };
+		E04D167821C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */; };
 		E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD5EF219281910067E227 /* AppDelegate.swift */; };
 		E0ACD5F2219281910067E227 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD5F1219281910067E227 /* ViewController.swift */; };
 		E0ACD5F5219281910067E227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ACD5F3219281910067E227 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		E04D165021BE007600CE4810 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
+		E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQReataurantDetailTextCell.swift; sourceTree = "<group>"; };
 		E0ACD5EC219281910067E227 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ACD5EF219281910067E227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0ACD5F1219281910067E227 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			children = (
 				E0ACD603219288370067E227 /* YQRestaurantView.swift */,
 				E0ACD607219289270067E227 /* YQRestaurantCellTableViewCell.swift */,
+				E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */,
+				E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,10 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04D167821C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift in Sources */,
 				E0ACD608219289270067E227 /* YQRestaurantCellTableViewCell.swift in Sources */,
 				E0ACD604219288370067E227 /* YQRestaurantView.swift in Sources */,
 				E04D165121BE007600CE4810 /* Restaurant.swift in Sources */,
 				E0DAAA0121BA5C430062E980 /* YQRestaurantDetailViewController.swift in Sources */,
+				E04D167621C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift in Sources */,
 				E0ACD5F2219281910067E227 /* ViewController.swift in Sources */,
 				E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */,
 			);
