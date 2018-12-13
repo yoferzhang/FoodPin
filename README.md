@@ -25,3 +25,7 @@ iOS11之后，导航栏可以设置这样变大的效果。
 tableView，actionSheet
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018120804.gif)
+
+详情页面
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121301.gif)
