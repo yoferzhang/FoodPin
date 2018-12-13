@@ -39,6 +39,11 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
 
         view.backgroundColor = UIColor.white
         navigationItem.largeTitleDisplayMode = .never
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
         // Do any additional setup after loading the view.
         initializeDetailTableView()
         
@@ -51,6 +56,8 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         detailTableView.separatorStyle = .none
         detailTableView.register(YQRestaurantDetailIconTextCell.self, forCellReuseIdentifier: String(describing: YQRestaurantDetailIconTextCell.self))
         detailTableView.register(YQReataurantDetailTextCell.self, forCellReuseIdentifier: String(describing: YQReataurantDetailTextCell.self))
+        
+        detailTableView.contentInsetAdjustmentBehavior = .never
         self.view.addSubview(detailTableView)
         
         self.initializeHeaderView()

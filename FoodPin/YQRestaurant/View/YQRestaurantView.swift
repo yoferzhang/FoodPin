@@ -53,7 +53,7 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
     /// 初始化tableview
     func initializeMainTableView() -> Void {
         mainTableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height), style: UITableView.Style.plain)
-        mainTableView.backgroundColor = UIColor.gray
+        mainTableView.backgroundColor = UIColor.white
         mainTableView.delegate = self;
         mainTableView.dataSource = self;
         mainTableView.register(YQRestaurantCellTableViewCell.self, forCellReuseIdentifier: cellIdentifier)

@@ -29,3 +29,41 @@ tableView，actionSheet
 详情页面
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121301.gif)
+
+导航栏透明，并修改大字体状态的title颜色， `viewDidLoad()`中
+
+```swift
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    
+    // 设置导航栏title的大字体状态的颜色
+    if let customFont = UIFont(name: "PingFangSC-Medium", size: 40.0) {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0), NSAttributedString.Key.font: customFont]
+    }
+```
+
+详情页面的导航栏变透明，返回按钮变色
+
+```swift
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = UIColor.white
+```
+
+调整tableView的顶部位置
+
+```swift
+        detailTableView.contentInsetAdjustmentBehavior = .never
+```
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121302.gif)
+
+全局修改导航栏的返回按钮 `application(_:didFinishLaunchingWithOptions:)` 中添加
+
+```swift
+        let backButtonImage = UIImage(named: "back")
+        UINavigationBar.appearance().backIndicatorImage = backButtonImage
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
+```
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121303.png)
