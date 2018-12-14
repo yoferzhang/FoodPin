@@ -14,7 +14,7 @@ private struct Constants {
 
 import UIKit
 
-class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, YQRestaurantReviewViewControllerDelegate {
     
 
     var restaurant: Restaurant!
@@ -25,6 +25,7 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     var nameLabel: UILabel!
     var typeLabel: UILabel!
     var heartImageView: UIImageView!
+    var ratingImageView: UIImageView!
     
     init(restaurant: Restaurant) {
         super.init(nibName: nil, bundle: nil)
@@ -109,22 +110,24 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         nameLabel.frame = CGRect(x: Constants.nameLabelX, y: typeLabel.frame.origin.y - 6 - nameLabel.frame.height, width: headerView.frame.width - Constants.nameLabelX - Constants.nameLabelX, height: nameLabel.frame.height)
         headerView.addSubview(nameLabel)
         
+        ratingImageView = UIImageView(frame: CGRect.zero)
+        headerView.addSubview(ratingImageView)
         
         detailTableView.tableHeaderView = headerView
     }
     
     func initFooterView() {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
-        footerView.backgroundColor = .red
         
         let rateButton = UIButton(frame: CGRect(x: Constants.leftMarginOfRateButton, y: 0, width: footerView.frame.width - Constants.leftMarginOfRateButton * 2, height: 47))
         rateButton.center = CGPoint(x: rateButton.center.x, y: footerView.frame.height * 0.5)
-        rateButton.titleLabel?.text = "Rate it"
+        rateButton.setTitle("Rate it", for: .normal)
         rateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         rateButton.titleLabel?.textColor = .white
         rateButton.backgroundColor = .red
         rateButton.layer.masksToBounds = true
         rateButton.layer.cornerRadius = rateButton.frame.height * 0.5
+        rateButton.addTarget(self, action: #selector(YQRestaurantDetailViewController.onClickRateButton(recognizer:)), for: .touchUpInside)
         footerView.addSubview(rateButton)
         
         detailTableView.tableFooterView = footerView
@@ -182,6 +185,22 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     /// 状态栏颜色
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    //MARK: - 点击事件
+    @objc func onClickRateButton(recognizer: UITapGestureRecognizer) {
+        let reviewVC = YQRestaurantReviewViewController()
+        reviewVC.restaurant = restaurant
+        reviewVC.delegate = self
+        self.present(reviewVC, animated: true, completion: nil)
+    }
+    
+    //MARK: - YQRestaurantReviewViewControllerDelegate
+    func onClickRateButtonInReviewVC(rate: RateModel) {
+        self.restaurant.rating = rate.image
+        self.ratingImageView.image = UIImage(named: rate.image)
+        self.ratingImageView.sizeToFit()
+        self.ratingImageView.frame = CGRect(x: UIScreen.main.bounds.width - ratingImageView.frame.width, y: headerView.frame.height - ratingImageView.frame.height, width: ratingImageView.frame.width, height: ratingImageView.frame.height)
     }
     
 }

@@ -131,3 +131,13 @@ extension UINavigationController {
 ```
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121403.png)
+
+测试一些动画
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121404.gif)
+
+代理回调，将选择的表情回调给详情页，展示在 `headerView` 的右下角
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121405.gif)
+
+
