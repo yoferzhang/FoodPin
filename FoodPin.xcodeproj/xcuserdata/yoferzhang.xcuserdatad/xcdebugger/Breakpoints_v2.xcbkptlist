@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FoodPin/YQRestaurant/View/YQRestaurantDetailMapCell.swift"
-            timestampString = "566455140.667725"
+            filePath = "FoodPin/YQRestaurant/ViewController/YQRestaurantMapViewController.swift"
+            timestampString = "566458067.894989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "onClickMapView(recognizer:)"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "onClickCloseButton(recognizer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

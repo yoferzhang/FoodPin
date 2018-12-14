@@ -6,12 +6,21 @@
 //  Copyright © 2018 yoferzhang. All rights reserved.
 //
 
+// Swift 添加常量的方法
+private struct MapViewControllerConstants {
+    static let leftMarginOfCloseButton: CGFloat = 20
+    static let widthOfCloseButton: CGFloat = 22
+
+}
+
 import UIKit
 import MapKit
 
 class YQRestaurantMapViewController: UIViewController, MKMapViewDelegate {
     
     var mapView: MKMapView!
+    var closeButton: UIButton!
+    
     var restaurant: Restaurant!
 
     override func viewDidLoad() {
@@ -30,6 +39,11 @@ class YQRestaurantMapViewController: UIViewController, MKMapViewDelegate {
         mapView.showsScale = true
         mapView.showsCompass = true
         self.view.addSubview(mapView)
+        
+        closeButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - MapViewControllerConstants.leftMarginOfCloseButton - MapViewControllerConstants.widthOfCloseButton, y: 30, width: MapViewControllerConstants.widthOfCloseButton, height: MapViewControllerConstants.widthOfCloseButton))
+        closeButton.setImage(UIImage(named: "closeButton"), for: .normal)
+        closeButton.addTarget(self, action: #selector(YQRestaurantMapViewController.onClickCloseButton(recognizer:)), for: .touchUpInside)
+        self.view.addSubview(closeButton)
     }
     
     func configure() {
@@ -79,6 +93,11 @@ class YQRestaurantMapViewController: UIViewController, MKMapViewDelegate {
         annotationView?.markerTintColor = UIColor.orange
         
         return annotationView
+    }
+    
+    //MARK: - 点击事件
+    @objc func onClickCloseButton(recognizer: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

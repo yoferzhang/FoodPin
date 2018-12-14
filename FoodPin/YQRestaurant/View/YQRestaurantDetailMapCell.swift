@@ -68,6 +68,7 @@ class YQRestaurantDetailMapCell: UITableViewCell {
     @objc func onClickMapView(recognizer: UITapGestureRecognizer) {
         let mapVC = YQRestaurantMapViewController()
         mapVC.restaurant = restaurant
+        
         self.currentViewController()?.present(mapVC, animated: true, completion: nil)
     }
     
