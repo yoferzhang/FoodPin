@@ -148,6 +148,8 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
         }
         
         deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+        // 用extionsion方法
+        deleteAction.backgroundColor = UIColor(red: 231, green: 76, blue: 60, alpha: 1.0)
         deleteAction.image = UIImage(named: "delete")
         
         let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, sourceView, comletionHandler) in

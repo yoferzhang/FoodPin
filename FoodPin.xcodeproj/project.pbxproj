@@ -10,6 +10,11 @@
 		E04D165121BE007600CE4810 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D165021BE007600CE4810 /* Restaurant.swift */; };
 		E04D167621C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */; };
 		E04D167821C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */; };
+		E04DB06B21C2144600AC6E19 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB06A21C2144600AC6E19 /* UIColor+Ext.swift */; };
+		E04DB06D21C2161E00AC6E19 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB06C21C2161E00AC6E19 /* UINavigationController+Ext.swift */; };
+		E04DB07021C219B100AC6E19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04DB06F21C219B100AC6E19 /* MapKit.framework */; };
+		E04DB07221C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07121C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift */; };
+		E04DB07721C2500B00AC6E19 /* YQRestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07621C2500B00AC6E19 /* YQRestaurantMapViewController.swift */; };
 		E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD5EF219281910067E227 /* AppDelegate.swift */; };
 		E0ACD5F2219281910067E227 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD5F1219281910067E227 /* ViewController.swift */; };
 		E0ACD5F5219281910067E227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ACD5F3219281910067E227 /* Main.storyboard */; };
@@ -24,6 +29,11 @@
 		E04D165021BE007600CE4810 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
 		E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQReataurantDetailTextCell.swift; sourceTree = "<group>"; };
+		E04DB06A21C2144600AC6E19 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		E04DB06C21C2161E00AC6E19 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
+		E04DB06F21C219B100AC6E19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E04DB07121C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailMapCell.swift; sourceTree = "<group>"; };
+		E04DB07621C2500B00AC6E19 /* YQRestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantMapViewController.swift; sourceTree = "<group>"; };
 		E0ACD5EC219281910067E227 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ACD5EF219281910067E227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0ACD5F1219281910067E227 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04DB07021C219B100AC6E19 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,11 +66,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E04DB06921C2142F00AC6E19 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E04DB06A21C2144600AC6E19 /* UIColor+Ext.swift */,
+				E04DB06C21C2161E00AC6E19 /* UINavigationController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E04DB06E21C219B100AC6E19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E04DB06F21C219B100AC6E19 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0ACD5E3219281910067E227 = {
 			isa = PBXGroup;
 			children = (
 				E0ACD5EE219281910067E227 /* FoodPin */,
 				E0ACD5ED219281910067E227 /* Products */,
+				E04DB06E21C219B100AC6E19 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				E0ACD601219288070067E227 /* YQRestaurant */,
+				E04DB06921C2142F00AC6E19 /* Extensions */,
 				E0ACD5EF219281910067E227 /* AppDelegate.swift */,
 				E0ACD5F1219281910067E227 /* ViewController.swift */,
 				E0ACD5F3219281910067E227 /* Main.storyboard */,
@@ -102,6 +132,7 @@
 				E0ACD607219289270067E227 /* YQRestaurantCellTableViewCell.swift */,
 				E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */,
 				E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */,
+				E04DB07121C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				E0DAAA0021BA5C430062E980 /* YQRestaurantDetailViewController.swift */,
+				E04DB07621C2500B00AC6E19 /* YQRestaurantMapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -148,6 +180,11 @@
 					E0ACD5EB219281910067E227 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -193,7 +230,11 @@
 				E04D165121BE007600CE4810 /* Restaurant.swift in Sources */,
 				E0DAAA0121BA5C430062E980 /* YQRestaurantDetailViewController.swift in Sources */,
 				E04D167621C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift in Sources */,
+				E04DB07721C2500B00AC6E19 /* YQRestaurantMapViewController.swift in Sources */,
+				E04DB06D21C2161E00AC6E19 /* UINavigationController+Ext.swift in Sources */,
+				E04DB06B21C2144600AC6E19 /* UIColor+Ext.swift in Sources */,
 				E0ACD5F2219281910067E227 /* ViewController.swift in Sources */,
+				E04DB07221C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift in Sources */,
 				E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //
 
 // Swift 添加常量的方法
-private struct Constants {
+struct DetailTextCellConstants {
     static let leftMarginOfLabel: CGFloat = 12
     static let topMarginOfLabel: CGFloat = 10
 }
@@ -50,11 +50,11 @@ class YQReataurantDetailTextCell: UITableViewCell {
     func setData(detailText: String) {
 
         detailLabel.text = detailText
-        var labelSize = detailLabel.sizeThatFits(CGSize(width: self.contentView.frame.width - Constants.leftMarginOfLabel * 2, height: CGFloat(MAXFLOAT)))
-        if (labelSize.height > self.contentView.frame.height - Constants.topMarginOfLabel * 2) {
-            labelSize.height = self.contentView.frame.height - Constants.topMarginOfLabel * 2
+        var labelSize = detailLabel.sizeThatFits(CGSize(width: self.contentView.frame.width - DetailTextCellConstants.leftMarginOfLabel * 2, height: CGFloat(MAXFLOAT)))
+        if (labelSize.height > self.contentView.frame.height - DetailTextCellConstants.topMarginOfLabel * 2) {
+            labelSize.height = self.contentView.frame.height - DetailTextCellConstants.topMarginOfLabel * 2
         }
         
-        detailLabel.frame = CGRect(x: Constants.leftMarginOfLabel, y: Constants.topMarginOfLabel, width: self.contentView.frame.width - Constants.leftMarginOfLabel * 2, height: labelSize.height)
+        detailLabel.frame = CGRect(x: DetailTextCellConstants.leftMarginOfLabel, y: DetailTextCellConstants.topMarginOfLabel, width: self.contentView.frame.width - DetailTextCellConstants.leftMarginOfLabel * 2, height: labelSize.height)
     }
 }

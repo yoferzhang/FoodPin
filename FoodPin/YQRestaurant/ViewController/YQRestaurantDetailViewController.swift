@@ -56,6 +56,8 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         detailTableView.separatorStyle = .none
         detailTableView.register(YQRestaurantDetailIconTextCell.self, forCellReuseIdentifier: String(describing: YQRestaurantDetailIconTextCell.self))
         detailTableView.register(YQReataurantDetailTextCell.self, forCellReuseIdentifier: String(describing: YQReataurantDetailTextCell.self))
+        detailTableView.register(YQRestaurantDetailMapCell.self, forCellReuseIdentifier: String(describing: YQRestaurantDetailMapCell.self))
+
         
         detailTableView.contentInsetAdjustmentBehavior = .never
         self.view.addSubview(detailTableView)
@@ -111,7 +113,7 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     
     // MARK: - tableViewDelegate & tableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -132,6 +134,11 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
             cell .setData(detailText: restaurant.description)
             cell.selectionStyle = .none
             return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: YQRestaurantDetailMapCell.self), for: indexPath) as! YQRestaurantDetailMapCell
+            cell.configure(restaurant: restaurant)
+            cell.selectionStyle = .none
+            return cell
         default:
             fatalError("Failed to instantiate the table view cell for detail view controoler")
         }
@@ -145,10 +152,23 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         case 1:
             return 50
         case 2:
-            return 300
+            let label = UILabel(frame: CGRect.zero)
+            label.text = restaurant.description
+            label.font = UIFont.systemFont(ofSize: 14)
+            label.numberOfLines = 0
+            let labelSize = label.sizeThatFits(CGSize(width: self.view.frame.width - DetailTextCellConstants.leftMarginOfLabel * 2, height: CGFloat(MAXFLOAT)))
+            
+            return labelSize.height + DetailTextCellConstants.topMarginOfLabel * 2
+        case 3:
+            return 350
         default:
             fatalError("Failed to instantiate the table view cell for detail view controoler")
         }
+    }
+    
+    /// 状态栏颜色
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 }

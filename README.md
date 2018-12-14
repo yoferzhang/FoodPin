@@ -67,3 +67,29 @@ tableView，actionSheet
 ```
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121303.png)
+
+修改详情页状态栏，
+
+```swift
+    /// 状态栏颜色
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+```
+
+可以没有生效，因为会用导航栏controller的颜色，为了让可以针对性修改页面，加一个Extension文件，`UINavigationController+Ext.swift`
+
+```swift
+import UIKit
+
+extension UINavigationController {
+    open override var childForStatusBarStyle: UIViewController? {
+        return topViewController
+    }
+}
+
+```
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121304.png)
+
+添加地图信息
