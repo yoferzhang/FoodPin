@@ -111,6 +111,7 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         headerView.addSubview(nameLabel)
         
         ratingImageView = UIImageView(frame: CGRect.zero)
+        refreshRatingImageView(rateImage: restaurant.rating)
         headerView.addSubview(ratingImageView)
         
         detailTableView.tableHeaderView = headerView
@@ -187,6 +188,13 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         return .lightContent
     }
     
+    func refreshRatingImageView(rateImage: String) {
+        self.restaurant.rating = rateImage
+        self.ratingImageView.image = UIImage(named: rateImage)
+        self.ratingImageView.sizeToFit()
+        self.ratingImageView.frame = CGRect(x: UIScreen.main.bounds.width - ratingImageView.frame.width, y: headerView.frame.height - ratingImageView.frame.height, width: ratingImageView.frame.width, height: ratingImageView.frame.height)
+    }
+    
     //MARK: - 点击事件
     @objc func onClickRateButton(recognizer: UITapGestureRecognizer) {
         let reviewVC = YQRestaurantReviewViewController()
@@ -197,10 +205,8 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     
     //MARK: - YQRestaurantReviewViewControllerDelegate
     func onClickRateButtonInReviewVC(rate: RateModel) {
-        self.restaurant.rating = rate.image
-        self.ratingImageView.image = UIImage(named: rate.image)
-        self.ratingImageView.sizeToFit()
-        self.ratingImageView.frame = CGRect(x: UIScreen.main.bounds.width - ratingImageView.frame.width, y: headerView.frame.height - ratingImageView.frame.height, width: ratingImageView.frame.width, height: ratingImageView.frame.height)
+        restaurant.rating = rate.image
+        refreshRatingImageView(rateImage: rate.image)
     }
     
 }
