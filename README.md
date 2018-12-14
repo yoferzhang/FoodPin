@@ -94,4 +94,4 @@ extension UINavigationController {
 
 添加地图信息
 
-![](https://github.com/yoferzhang/blogImage/blob/master/2018121401.png)
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121401.gif)
