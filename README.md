@@ -3,8 +3,6 @@ Swift练习demo
 
 效果演示
 
-![](https://github.com/yoferzhang/blogImage/blob/master/2018120801.gif)
-
 iOS11之后，导航栏可以设置这样变大的效果。
 
 在 ViewController 的 viewDidLoad() 方法中添加下面这行代码可以实现：
@@ -13,6 +11,8 @@ iOS11之后，导航栏可以设置这样变大的效果。
 	// iOS11之后这个属性可以让导航栏往下滑动的时候title变大
     navigationController?.navigationBar.prefersLargeTitles = true
 ```
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018120801.gif)
 
 向右滑动菜单：
 
@@ -95,3 +95,39 @@ extension UINavigationController {
 添加地图信息
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121401.gif)
+
+自定义 `annotationView`，实现 `MKMapViewDelegate`
+
+```swift
+    //MARK: - MKMapViewDelegate
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyMarker"
+        
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        
+        // Reuse the annotation if possible
+        var annotationView: MKMarkerAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+        annotationView?.glyphText = "😋"
+        annotationView?.markerTintColor = UIColor.orange
+        
+        return annotationView
+    }
+```
+
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121402.png)
+
+```swift
+        mapView.showsTraffic = true
+        mapView.showsScale = true
+        mapView.showsCompass = true
+```
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121403.png)

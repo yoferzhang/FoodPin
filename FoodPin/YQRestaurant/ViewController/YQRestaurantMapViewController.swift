@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class YQRestaurantMapViewController: UIViewController {
+class YQRestaurantMapViewController: UIViewController, MKMapViewDelegate {
     
     var mapView: MKMapView!
     var restaurant: Restaurant!
@@ -25,6 +25,10 @@ class YQRestaurantMapViewController: UIViewController {
 
     func initializeView() {
         mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        mapView.delegate = self
+        mapView.showsTraffic = true
+        mapView.showsScale = true
+        mapView.showsCompass = true
         self.view.addSubview(mapView)
     }
     
@@ -54,6 +58,27 @@ class YQRestaurantMapViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    //MARK: - MKMapViewDelegate
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyMarker"
+        
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        
+        // Reuse the annotation if possible
+        var annotationView: MKMarkerAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+        annotationView?.glyphText = "😋"
+        annotationView?.markerTintColor = UIColor.orange
+        
+        return annotationView
     }
 
 }
