@@ -141,3 +141,7 @@ extension UINavigationController {
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121405.gif)
 
 
+静态列表，`textField`使用
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121406.gif)
+
