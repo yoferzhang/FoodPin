@@ -7,7 +7,7 @@
 //
 
 // Swift 添加常量的方法
-struct DetailTextCellConstants {
+private struct DetailTextCellConstants {
     static let leftMarginOfLabel: CGFloat = 12
     static let topMarginOfLabel: CGFloat = 10
 }
@@ -56,5 +56,18 @@ class YQReataurantDetailTextCell: UITableViewCell {
         }
         
         detailLabel.frame = CGRect(x: DetailTextCellConstants.leftMarginOfLabel, y: DetailTextCellConstants.topMarginOfLabel, width: self.contentView.frame.width - DetailTextCellConstants.leftMarginOfLabel * 2, height: labelSize.height)
+    }
+    
+    // MARK: - Helper Method
+    /// 类方法返回cell的高
+    class func heightForTextCell(restaurant: Restaurant) -> CGFloat {
+        
+        let label = UILabel(frame: CGRect.zero)
+        label.text = restaurant.description
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        let labelSize = label.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - DetailTextCellConstants.leftMarginOfLabel * 2, height: CGFloat(MAXFLOAT)))
+        
+        return labelSize.height + DetailTextCellConstants.topMarginOfLabel * 2
     }
 }

@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodPin/YQRestaurant/View/YQRestaurantDetailIconTextCell.swift"
-            timestampString = "566279387.72552"
+            timestampString = "566466509.300202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "initUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodPin/YQRestaurant/ViewController/YQRestaurantMapViewController.swift"
-            timestampString = "566458067.894989"
+            timestampString = "566466509.300529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"

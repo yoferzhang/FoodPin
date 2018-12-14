@@ -9,6 +9,7 @@
 // Swift 添加常量的方法
 private struct Constants {
     static let nameLabelX: CGFloat = 12
+    static let leftMarginOfRateButton: CGFloat = 15
 }
 
 import UIKit
@@ -45,11 +46,11 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         navigationController?.navigationBar.tintColor = UIColor.white
         
         // Do any additional setup after loading the view.
-        initializeDetailTableView()
+        initDetailTableView()
         
     }
     
-    func initializeDetailTableView() {
+    func initDetailTableView() {
         detailTableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         detailTableView.delegate = self
         detailTableView.dataSource = self
@@ -62,10 +63,11 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         detailTableView.contentInsetAdjustmentBehavior = .never
         self.view.addSubview(detailTableView)
         
-        self.initializeHeaderView()
+        self.initHeaderView()
+        self.initFooterView()
     }
     
-    func initializeHeaderView() {
+    func initHeaderView() {
         headerView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 350))
         headerView.contentMode = .scaleAspectFill
         headerView.image = UIImage(named: restaurant.name)
@@ -111,6 +113,23 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         detailTableView.tableHeaderView = headerView
     }
     
+    func initFooterView() {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+        footerView.backgroundColor = .red
+        
+        let rateButton = UIButton(frame: CGRect(x: Constants.leftMarginOfRateButton, y: 0, width: footerView.frame.width - Constants.leftMarginOfRateButton * 2, height: 47))
+        rateButton.center = CGPoint(x: rateButton.center.x, y: footerView.frame.height * 0.5)
+        rateButton.titleLabel?.text = "Rate it"
+        rateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        rateButton.titleLabel?.textColor = .white
+        rateButton.backgroundColor = .red
+        rateButton.layer.masksToBounds = true
+        rateButton.layer.cornerRadius = rateButton.frame.height * 0.5
+        footerView.addSubview(rateButton)
+        
+        detailTableView.tableFooterView = footerView
+    }
+    
     // MARK: - tableViewDelegate & tableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
@@ -148,19 +167,13 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 50
+            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image, text: restaurant.phone)
         case 1:
-            return 50
+            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image, text: restaurant.location)
         case 2:
-            let label = UILabel(frame: CGRect.zero)
-            label.text = restaurant.description
-            label.font = UIFont.systemFont(ofSize: 14)
-            label.numberOfLines = 0
-            let labelSize = label.sizeThatFits(CGSize(width: self.view.frame.width - DetailTextCellConstants.leftMarginOfLabel * 2, height: CGFloat(MAXFLOAT)))
-            
-            return labelSize.height + DetailTextCellConstants.topMarginOfLabel * 2
+            return YQReataurantDetailTextCell.heightForTextCell(restaurant: restaurant)
         case 3:
-            return 350
+            return YQRestaurantDetailMapCell.heightForMapCell()
         default:
             fatalError("Failed to instantiate the table view cell for detail view controoler")
         }

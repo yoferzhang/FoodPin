@@ -10,6 +10,8 @@
 private struct DetailMapCellConstants {
     static let leftMarginOfLabel: CGFloat = 12
     static let topMarginOfLabel: CGFloat = 10
+    static let marginOfTitleAndSeparator: CGFloat = 6
+    static let heightOfMapView: CGFloat = 215
 }
 
 
@@ -52,15 +54,14 @@ class YQRestaurantDetailMapCell: UITableViewCell {
         titleLabel.frame = CGRect(x: DetailMapCellConstants.leftMarginOfLabel, y: DetailMapCellConstants.topMarginOfLabel, width: UIScreen.main.bounds.width - DetailMapCellConstants.leftMarginOfLabel * 2, height: titleLabel.frame.height)
         self.contentView.addSubview(titleLabel)
         
-        separatorView = UIView(frame: CGRect(x: titleLabel.frame.origin.x, y: titleLabel.frame.maxY + 6, width: UIScreen.main.bounds.width - DetailMapCellConstants.leftMarginOfLabel * 2, height: 0.5))
+        separatorView = UIView(frame: CGRect(x: titleLabel.frame.origin.x, y: titleLabel.frame.maxY + DetailMapCellConstants.marginOfTitleAndSeparator, width: UIScreen.main.bounds.width - DetailMapCellConstants.leftMarginOfLabel * 2, height: 0.5))
         separatorView.backgroundColor = UIColor.lightGray
         self.contentView.addSubview(separatorView)
         
-        mapView = MKMapView(frame: CGRect(x: 0, y: separatorView.frame.maxY + 6, width: UIScreen.main.bounds.width, height: 215))
+        mapView = MKMapView(frame: CGRect(x: 0, y: separatorView.frame.maxY + DetailMapCellConstants.marginOfTitleAndSeparator, width: UIScreen.main.bounds.width, height: DetailMapCellConstants.heightOfMapView))
         mapView.isScrollEnabled = false
         mapView.isPitchEnabled = false
         mapView.isZoomEnabled = false
-//        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(YQRestaurantDetailMapCell.onClickMapView(recognizer:))))
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(YQRestaurantDetailMapCell.onClickMapView(recognizer:))))
         self.contentView.addSubview(mapView)
     }
@@ -113,6 +114,20 @@ class YQRestaurantDetailMapCell: UITableViewCell {
             return currentViewController(base: presented)
         }
         return base
+    }
+    
+    /// 类方法返回cell的高
+    class func heightForMapCell() -> CGFloat {
+        var height: CGFloat = 0
+        
+        let titleLabel = UILabel(frame: CGRect.zero)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.text = "HOW TO GET HERE"
+        titleLabel.sizeToFit()
+        titleLabel.frame = CGRect(x: DetailMapCellConstants.leftMarginOfLabel, y: DetailMapCellConstants.topMarginOfLabel, width: UIScreen.main.bounds.width - DetailMapCellConstants.leftMarginOfLabel * 2, height: titleLabel.frame.height)
+        height = titleLabel.frame.maxY + DetailMapCellConstants.marginOfTitleAndSeparator * 2 + 0.5 + DetailMapCellConstants.heightOfMapView + 12
+        
+        return height
     }
     
 }
