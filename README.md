@@ -145,3 +145,6 @@ extension UINavigationController {
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121406.gif)
 
+图片选择器
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121407.gif)
