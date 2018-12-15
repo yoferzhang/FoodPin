@@ -13,31 +13,20 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var baseNavigationController: UINavigationController!
+    var tabBarControllers: [UIViewController] = []
     var baseTabBarController: UITabBarController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let rootViewController = YQRestaurantTableViewController()
-        
-        baseNavigationController = UINavigationController(rootViewController: rootViewController)
-        rootViewController.navigationController?.setNavigationBarHidden(false, animated: false)
-        
-        
         baseTabBarController = UITabBarController(nibName: nil, bundle: nil)
-        baseTabBarController.setViewControllers([baseNavigationController], animated: false)
-//        let restaurantTabBarItem = UITabBarItem(title: "restaurant", image: nil, tag: 0)
-//        baseTabBarController.tabBar.setItems([restaurantTabBarItem], animated: false)
-        let tabBarItems = baseTabBarController.tabBar.items
-        let favoritesTabBarItem = tabBarItems?[0]
-        favoritesTabBarItem?.title = "Favorites"
-        favoritesTabBarItem?.image = UIImage(named: "favorite")
+        tabBarControllers.append(favoritesViewController())
+        tabBarControllers.append(discoverViewController())
+        tabBarControllers.append(aboutViewController())
         
-        //        favoritesTabBarItem?.image = UIImage(named: "discover")
-//        favoritesTabBarItem?.image = UIImage(named: "about")
-        
+        baseTabBarController.setViewControllers(tabBarControllers, animated: false)
 
+        configureTabBarItems()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
@@ -52,6 +41,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = .black
         
         return true
+    }
+    
+    func favoritesViewController() -> UIViewController {
+        let rootViewController = YQRestaurantTableViewController()
+        return UINavigationController(rootViewController: rootViewController)
+    }
+    
+    func discoverViewController() -> UIViewController {
+        let rootViewController = UIViewController()
+        return UINavigationController(rootViewController: rootViewController)
+    }
+    
+    func aboutViewController() -> UIViewController {
+        let rootViewController = UIViewController()
+        return UINavigationController(rootViewController: rootViewController)
+    }
+    
+    func configureTabBarItems() {
+        let tabBarItems = baseTabBarController.tabBar.items
+        let itemsCount: Int = tabBarItems?.count ?? 0
+        if itemsCount > 0 {
+            for index in 0...itemsCount - 1 {
+                var title = ""
+                var image = ""
+                switch index {
+                case 0:
+                    title = "Favorites"
+                    image = "favorite"
+                case 1:
+                    title = "Discover"
+                    image = "discover"
+                case 2:
+                    title = "About"
+                    image = "about"
+                default:
+                    return
+                }
+                
+                if let tabBarItem = tabBarItems?[index] {
+                    tabBarItem.title = title
+                    tabBarItem.image = UIImage(named: image)
+                }
+            }
+        }
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
