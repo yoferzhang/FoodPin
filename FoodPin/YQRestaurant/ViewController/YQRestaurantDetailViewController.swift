@@ -209,6 +209,10 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     func onClickRateButtonInReviewVC(rate: RateModel) {
         restaurant.rating = rate.image
         refreshRatingImageView(rateImage: rate.image)
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            appDelegate.saveContext()
+        }
     }
     
 }

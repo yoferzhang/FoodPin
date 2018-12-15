@@ -72,6 +72,7 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
                 restaurantMO.location = restaurantOriginal.location
                 restaurantMO.phone = restaurantOriginal.phone
                 restaurantMO.summary = restaurantOriginal.description
+                restaurantMO.rating = ""
                 if let restaurantImage = UIImage(named: restaurantOriginal.name) {
                     let imageData = restaurantImage.pngData()
                     restaurantMO.image = imageData
