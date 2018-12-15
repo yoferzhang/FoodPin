@@ -7,55 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E04D165121BE007600CE4810 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D165021BE007600CE4810 /* Restaurant.swift */; };
-		E04D167621C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */; };
-		E04D167821C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */; };
 		E04DB06B21C2144600AC6E19 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB06A21C2144600AC6E19 /* UIColor+Ext.swift */; };
 		E04DB06D21C2161E00AC6E19 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB06C21C2161E00AC6E19 /* UINavigationController+Ext.swift */; };
 		E04DB07021C219B100AC6E19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04DB06F21C219B100AC6E19 /* MapKit.framework */; };
-		E04DB07221C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07121C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift */; };
-		E04DB07721C2500B00AC6E19 /* YQRestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07621C2500B00AC6E19 /* YQRestaurantMapViewController.swift */; };
-		E04DB07921C39B4F00AC6E19 /* YQRestaurantReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07821C39B4F00AC6E19 /* YQRestaurantReviewViewController.swift */; };
-		E04DB07B21C3A01400AC6E19 /* RateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07A21C3A01400AC6E19 /* RateModel.swift */; };
-		E04DB07D21C3DD9100AC6E19 /* YQNewRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07C21C3DD9100AC6E19 /* YQNewRestaurantViewController.swift */; };
-		E04DB07F21C3DF8200AC6E19 /* YQRestaurantEditInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB07E21C3DF8200AC6E19 /* YQRestaurantEditInfoCell.swift */; };
-		E04DB08121C3E75600AC6E19 /* YQRoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08021C3E75600AC6E19 /* YQRoundedTextField.swift */; };
-		E04DB08321C3ED0C00AC6E19 /* YQRestaurantEditPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08221C3ED0C00AC6E19 /* YQRestaurantEditPhotoCell.swift */; };
 		E04DB08621C4948100AC6E19 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08421C4948100AC6E19 /* FoodPin.xcdatamodeld */; };
-		E04DB08821C4AE5900AC6E19 /* YQRestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08721C4AE5900AC6E19 /* YQRestaurantTableViewController.swift */; };
+		E04DB09C21C5318800AC6E19 /* RateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08B21C5318800AC6E19 /* RateModel.swift */; };
+		E04DB09D21C5318800AC6E19 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08C21C5318800AC6E19 /* Restaurant.swift */; };
+		E04DB09E21C5318800AC6E19 /* YQRestaurantEditInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08E21C5318800AC6E19 /* YQRestaurantEditInfoCell.swift */; };
+		E04DB09F21C5318800AC6E19 /* YQRestaurantCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB08F21C5318800AC6E19 /* YQRestaurantCellTableViewCell.swift */; };
+		E04DB0A021C5318800AC6E19 /* YQRestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09021C5318800AC6E19 /* YQRestaurantDetailMapCell.swift */; };
+		E04DB0A121C5318800AC6E19 /* YQReataurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09121C5318800AC6E19 /* YQReataurantDetailTextCell.swift */; };
+		E04DB0A221C5318800AC6E19 /* YQRestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09221C5318800AC6E19 /* YQRestaurantDetailIconTextCell.swift */; };
+		E04DB0A321C5318800AC6E19 /* YQRoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09321C5318800AC6E19 /* YQRoundedTextField.swift */; };
+		E04DB0A421C5318800AC6E19 /* YQRestaurantEditPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09421C5318800AC6E19 /* YQRestaurantEditPhotoCell.swift */; };
+		E04DB0A521C5318800AC6E19 /* YQRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09521C5318800AC6E19 /* YQRestaurantView.swift */; };
+		E04DB0A621C5318800AC6E19 /* YQRestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09721C5318800AC6E19 /* YQRestaurantMapViewController.swift */; };
+		E04DB0A721C5318800AC6E19 /* YQNewRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09821C5318800AC6E19 /* YQNewRestaurantViewController.swift */; };
+		E04DB0A821C5318800AC6E19 /* YQRestaurantReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09921C5318800AC6E19 /* YQRestaurantReviewViewController.swift */; };
+		E04DB0A921C5318800AC6E19 /* YQRestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09A21C5318800AC6E19 /* YQRestaurantDetailViewController.swift */; };
+		E04DB0AA21C5318800AC6E19 /* YQRestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB09B21C5318800AC6E19 /* YQRestaurantTableViewController.swift */; };
 		E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD5EF219281910067E227 /* AppDelegate.swift */; };
 		E0ACD5F7219281920067E227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ACD5F6219281920067E227 /* Assets.xcassets */; };
 		E0ACD5FA219281920067E227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ACD5F8219281920067E227 /* LaunchScreen.storyboard */; };
-		E0ACD604219288370067E227 /* YQRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD603219288370067E227 /* YQRestaurantView.swift */; };
-		E0ACD608219289270067E227 /* YQRestaurantCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ACD607219289270067E227 /* YQRestaurantCellTableViewCell.swift */; };
-		E0DAAA0121BA5C430062E980 /* YQRestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DAAA0021BA5C430062E980 /* YQRestaurantDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E04D165021BE007600CE4810 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
-		E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
-		E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQReataurantDetailTextCell.swift; sourceTree = "<group>"; };
 		E04DB06A21C2144600AC6E19 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		E04DB06C21C2161E00AC6E19 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		E04DB06F21C219B100AC6E19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		E04DB07121C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailMapCell.swift; sourceTree = "<group>"; };
-		E04DB07621C2500B00AC6E19 /* YQRestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantMapViewController.swift; sourceTree = "<group>"; };
-		E04DB07821C39B4F00AC6E19 /* YQRestaurantReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantReviewViewController.swift; sourceTree = "<group>"; };
-		E04DB07A21C3A01400AC6E19 /* RateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateModel.swift; sourceTree = "<group>"; };
-		E04DB07C21C3DD9100AC6E19 /* YQNewRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQNewRestaurantViewController.swift; sourceTree = "<group>"; };
-		E04DB07E21C3DF8200AC6E19 /* YQRestaurantEditInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantEditInfoCell.swift; sourceTree = "<group>"; };
-		E04DB08021C3E75600AC6E19 /* YQRoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRoundedTextField.swift; sourceTree = "<group>"; };
-		E04DB08221C3ED0C00AC6E19 /* YQRestaurantEditPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantEditPhotoCell.swift; sourceTree = "<group>"; };
 		E04DB08521C4948100AC6E19 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
-		E04DB08721C4AE5900AC6E19 /* YQRestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantTableViewController.swift; sourceTree = "<group>"; };
+		E04DB08B21C5318800AC6E19 /* RateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateModel.swift; sourceTree = "<group>"; };
+		E04DB08C21C5318800AC6E19 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		E04DB08E21C5318800AC6E19 /* YQRestaurantEditInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantEditInfoCell.swift; sourceTree = "<group>"; };
+		E04DB08F21C5318800AC6E19 /* YQRestaurantCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantCellTableViewCell.swift; sourceTree = "<group>"; };
+		E04DB09021C5318800AC6E19 /* YQRestaurantDetailMapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailMapCell.swift; sourceTree = "<group>"; };
+		E04DB09121C5318800AC6E19 /* YQReataurantDetailTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQReataurantDetailTextCell.swift; sourceTree = "<group>"; };
+		E04DB09221C5318800AC6E19 /* YQRestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
+		E04DB09321C5318800AC6E19 /* YQRoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRoundedTextField.swift; sourceTree = "<group>"; };
+		E04DB09421C5318800AC6E19 /* YQRestaurantEditPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantEditPhotoCell.swift; sourceTree = "<group>"; };
+		E04DB09521C5318800AC6E19 /* YQRestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantView.swift; sourceTree = "<group>"; };
+		E04DB09721C5318800AC6E19 /* YQRestaurantMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantMapViewController.swift; sourceTree = "<group>"; };
+		E04DB09821C5318800AC6E19 /* YQNewRestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQNewRestaurantViewController.swift; sourceTree = "<group>"; };
+		E04DB09921C5318800AC6E19 /* YQRestaurantReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantReviewViewController.swift; sourceTree = "<group>"; };
+		E04DB09A21C5318800AC6E19 /* YQRestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		E04DB09B21C5318800AC6E19 /* YQRestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQRestaurantTableViewController.swift; sourceTree = "<group>"; };
 		E0ACD5EC219281910067E227 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ACD5EF219281910067E227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0ACD5F6219281920067E227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0ACD5F9219281920067E227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0ACD5FB219281920067E227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0ACD603219288370067E227 /* YQRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantView.swift; sourceTree = "<group>"; };
-		E0ACD607219289270067E227 /* YQRestaurantCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantCellTableViewCell.swift; sourceTree = "<group>"; };
-		E0DAAA0021BA5C430062E980 /* YQRestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQRestaurantDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,15 +70,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E04D164F21BDFDF200CE4810 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E04D165021BE007600CE4810 /* Restaurant.swift */,
-				E04DB07A21C3A01400AC6E19 /* RateModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		E04DB06921C2142F00AC6E19 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +85,52 @@
 				E04DB06F21C219B100AC6E19 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E04DB08921C5318800AC6E19 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E04DB08A21C5318800AC6E19 /* Model */,
+				E04DB08D21C5318800AC6E19 /* View */,
+				E04DB09621C5318800AC6E19 /* ViewController */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		E04DB08A21C5318800AC6E19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E04DB08B21C5318800AC6E19 /* RateModel.swift */,
+				E04DB08C21C5318800AC6E19 /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E04DB08D21C5318800AC6E19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E04DB08E21C5318800AC6E19 /* YQRestaurantEditInfoCell.swift */,
+				E04DB08F21C5318800AC6E19 /* YQRestaurantCellTableViewCell.swift */,
+				E04DB09021C5318800AC6E19 /* YQRestaurantDetailMapCell.swift */,
+				E04DB09121C5318800AC6E19 /* YQReataurantDetailTextCell.swift */,
+				E04DB09221C5318800AC6E19 /* YQRestaurantDetailIconTextCell.swift */,
+				E04DB09321C5318800AC6E19 /* YQRoundedTextField.swift */,
+				E04DB09421C5318800AC6E19 /* YQRestaurantEditPhotoCell.swift */,
+				E04DB09521C5318800AC6E19 /* YQRestaurantView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E04DB09621C5318800AC6E19 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E04DB09721C5318800AC6E19 /* YQRestaurantMapViewController.swift */,
+				E04DB09821C5318800AC6E19 /* YQNewRestaurantViewController.swift */,
+				E04DB09921C5318800AC6E19 /* YQRestaurantReviewViewController.swift */,
+				E04DB09A21C5318800AC6E19 /* YQRestaurantDetailViewController.swift */,
+				E04DB09B21C5318800AC6E19 /* YQRestaurantTableViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		E0ACD5E3219281910067E227 = {
@@ -130,38 +167,9 @@
 		E0ACD601219288070067E227 /* YQRestaurant */ = {
 			isa = PBXGroup;
 			children = (
-				E04D164F21BDFDF200CE4810 /* Model */,
-				E0DAA9FC21BA5BB60062E980 /* ViewController */,
-				E0ACD6022192881E0067E227 /* View */,
+				E04DB08921C5318800AC6E19 /* Favorites */,
 			);
 			path = YQRestaurant;
-			sourceTree = "<group>";
-		};
-		E0ACD6022192881E0067E227 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E0ACD603219288370067E227 /* YQRestaurantView.swift */,
-				E0ACD607219289270067E227 /* YQRestaurantCellTableViewCell.swift */,
-				E04D167521C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift */,
-				E04D167721C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift */,
-				E04DB07121C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift */,
-				E04DB07E21C3DF8200AC6E19 /* YQRestaurantEditInfoCell.swift */,
-				E04DB08221C3ED0C00AC6E19 /* YQRestaurantEditPhotoCell.swift */,
-				E04DB08021C3E75600AC6E19 /* YQRoundedTextField.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E0DAA9FC21BA5BB60062E980 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E04DB08721C4AE5900AC6E19 /* YQRestaurantTableViewController.swift */,
-				E0DAAA0021BA5C430062E980 /* YQRestaurantDetailViewController.swift */,
-				E04DB07621C2500B00AC6E19 /* YQRestaurantMapViewController.swift */,
-				E04DB07821C39B4F00AC6E19 /* YQRestaurantReviewViewController.swift */,
-				E04DB07C21C3DD9100AC6E19 /* YQNewRestaurantViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,25 +249,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E04D167821C0AF8B00CE4810 /* YQReataurantDetailTextCell.swift in Sources */,
-				E04DB08321C3ED0C00AC6E19 /* YQRestaurantEditPhotoCell.swift in Sources */,
-				E0ACD608219289270067E227 /* YQRestaurantCellTableViewCell.swift in Sources */,
-				E0ACD604219288370067E227 /* YQRestaurantView.swift in Sources */,
-				E04DB08821C4AE5900AC6E19 /* YQRestaurantTableViewController.swift in Sources */,
-				E04DB07921C39B4F00AC6E19 /* YQRestaurantReviewViewController.swift in Sources */,
-				E04D165121BE007600CE4810 /* Restaurant.swift in Sources */,
-				E04DB07D21C3DD9100AC6E19 /* YQNewRestaurantViewController.swift in Sources */,
-				E04DB07B21C3A01400AC6E19 /* RateModel.swift in Sources */,
 				E04DB08621C4948100AC6E19 /* FoodPin.xcdatamodeld in Sources */,
-				E0DAAA0121BA5C430062E980 /* YQRestaurantDetailViewController.swift in Sources */,
-				E04D167621C0A91C00CE4810 /* YQRestaurantDetailIconTextCell.swift in Sources */,
-				E04DB07721C2500B00AC6E19 /* YQRestaurantMapViewController.swift in Sources */,
 				E04DB06D21C2161E00AC6E19 /* UINavigationController+Ext.swift in Sources */,
+				E04DB0A021C5318800AC6E19 /* YQRestaurantDetailMapCell.swift in Sources */,
+				E04DB0A221C5318800AC6E19 /* YQRestaurantDetailIconTextCell.swift in Sources */,
+				E04DB0AA21C5318800AC6E19 /* YQRestaurantTableViewController.swift in Sources */,
+				E04DB09D21C5318800AC6E19 /* Restaurant.swift in Sources */,
+				E04DB0A421C5318800AC6E19 /* YQRestaurantEditPhotoCell.swift in Sources */,
+				E04DB09C21C5318800AC6E19 /* RateModel.swift in Sources */,
+				E04DB0A521C5318800AC6E19 /* YQRestaurantView.swift in Sources */,
+				E04DB0A921C5318800AC6E19 /* YQRestaurantDetailViewController.swift in Sources */,
+				E04DB09F21C5318800AC6E19 /* YQRestaurantCellTableViewCell.swift in Sources */,
+				E04DB0A621C5318800AC6E19 /* YQRestaurantMapViewController.swift in Sources */,
+				E04DB0A721C5318800AC6E19 /* YQNewRestaurantViewController.swift in Sources */,
 				E04DB06B21C2144600AC6E19 /* UIColor+Ext.swift in Sources */,
-				E04DB08121C3E75600AC6E19 /* YQRoundedTextField.swift in Sources */,
-				E04DB07221C245CA00AC6E19 /* YQRestaurantDetailMapCell.swift in Sources */,
-				E04DB07F21C3DF8200AC6E19 /* YQRestaurantEditInfoCell.swift in Sources */,
+				E04DB0A821C5318800AC6E19 /* YQRestaurantReviewViewController.swift in Sources */,
+				E04DB09E21C5318800AC6E19 /* YQRestaurantEditInfoCell.swift in Sources */,
+				E04DB0A121C5318800AC6E19 /* YQReataurantDetailTextCell.swift in Sources */,
 				E0ACD5F0219281910067E227 /* AppDelegate.swift in Sources */,
+				E04DB0A321C5318800AC6E19 /* YQRoundedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
