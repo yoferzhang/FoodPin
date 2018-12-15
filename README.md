@@ -149,7 +149,27 @@ extension UINavigationController {
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121407.gif)
 
-改用 `CoreData` 存储数据，并用 `NSFetchedResultsController` 监听，新建后局部刷新首页 `tableview`
+改用 `CoreData` 存储数据，并用 `NSFetchedResultsController` 监听；新建局部刷新首页 `tableview`
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121501.gif)
 
+删除后，局部刷新首页 `tableview`
+
+```swift
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, soureView, comletionHandler) in
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                
+                if let currentVC = self.currentViewController() as? YQRestaurantTableViewController {
+                    let restaurantToDelete = currentVC.fetchResultController.object(at: indexPath)
+                    context.delete(restaurantToDelete)
+                    
+                    appDelegate.saveContext()
+                }
+                
+            }
+            
+            comletionHandler(true)
+        }
+```

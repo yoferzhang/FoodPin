@@ -118,16 +118,23 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
     // 向左滑cell
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, soureView, comletionHandler) in
-            self.restaurantInfoArray.remove(at: indexPath.row)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                
+                if let currentVC = self.currentViewController() as? YQRestaurantTableViewController {
+                    let restaurantToDelete = currentVC.fetchResultController.object(at: indexPath)
+                    context.delete(restaurantToDelete)
+                    
+                    appDelegate.saveContext()
+                }
+                
+            }
             
             comletionHandler(true)
         }
         
         deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
         // 用extionsion方法
-        deleteAction.backgroundColor = UIColor(red: 231, green: 76, blue: 60, alpha: 1.0)
         deleteAction.image = UIImage(named: "delete")
         
         let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, sourceView, comletionHandler) in
