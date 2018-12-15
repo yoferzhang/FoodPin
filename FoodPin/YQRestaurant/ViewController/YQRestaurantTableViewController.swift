@@ -47,7 +47,7 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
     var searchResults: [RestaurantMO] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        
+
     }
     
     override func viewDidLoad() {
@@ -155,6 +155,7 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.searchController = searchController
     }
         

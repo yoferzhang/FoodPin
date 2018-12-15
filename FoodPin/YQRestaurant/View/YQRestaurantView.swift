@@ -77,14 +77,10 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
         let detailViewController = YQRestaurantDetailViewController.init(restaurant: searchControllerIsActive() ? searchResults[indexPath.row] : restaurantInfoArray[indexPath.row])
         
         if searchControllerIsActive() {
-            if let nav = UIApplication.shared.keyWindow?.rootViewController {
-            }
-            currentNavigationController()?.pushViewController(detailViewController, animated: true)
-        } else {
-            currentViewController()?.navigationController?.pushViewController(detailViewController, animated: true)
+//            currentViewController()?.dismiss(animated: false, completion: nil)
         }
-//        currentViewController()?.show(detailViewController, sender: nil)
-        
+        currentNavigationController().pushViewController(detailViewController, animated: true)
+
     }
     
     // 向右滑cell
@@ -197,17 +193,11 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
         return base
     }
 
-    func currentNavigationController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UINavigationController? {
-        if let nav = base?.navigationController {
-            return nav
+    func currentNavigationController() -> UINavigationController {
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            return appDelegate.baseNavigationController
         }
-        if let tab = base as? UITabBarController {
-            return currentNavigationController(base: tab.selectedViewController)
-        }
-        if let presented = base?.presentedViewController {
-            return currentNavigationController(base: presented)
-        }
-        return base as? UINavigationController
+        return UINavigationController()
     }
     
     func searchControllerIsActive() -> Bool {

@@ -13,18 +13,18 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController!
+    var baseNavigationController: UINavigationController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         let rootViewController = YQRestaurantTableViewController()
         
-        navigationController = UINavigationController(rootViewController: rootViewController)
+        baseNavigationController = UINavigationController(rootViewController: rootViewController)
         rootViewController.navigationController?.setNavigationBarHidden(false, animated: false)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        window?.rootViewController = navigationController
+        window?.rootViewController = baseNavigationController
         window?.makeKeyAndVisible()
         
         let backButtonImage = UIImage(named: "back")

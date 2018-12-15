@@ -50,6 +50,8 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     func configNav() {
         navigationItem.largeTitleDisplayMode = .never
         
+        navigationController?.isNavigationBarHidden = false
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = UIColor.white
