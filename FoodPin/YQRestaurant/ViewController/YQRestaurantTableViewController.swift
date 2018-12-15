@@ -156,6 +156,10 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search restaurants..."
+        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.tintColor = .orange
+
         self.navigationItem.searchController = searchController
     }
         
@@ -173,12 +177,19 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
     
     func filterContent(for searchText: String) {
         searchResults = restaurantInfoArray.filter({ (restaurant) -> Bool in
+            var isMatch = false
+
             if let name = restaurant.name {
-                let isMatch = name.localizedCaseInsensitiveContains(searchText)
-                return isMatch
+                isMatch = name.localizedCaseInsensitiveContains(searchText)
             }
             
-            return false
+            if !isMatch {
+                if let loaction = restaurant.location {
+                    isMatch = loaction.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+            
+            return isMatch
         })
     }
     
