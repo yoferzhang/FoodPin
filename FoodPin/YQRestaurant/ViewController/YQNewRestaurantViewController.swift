@@ -183,42 +183,6 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
         return true
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        switch textField.tag {
-//        case 1:
-//            restaurant.name = string
-//        case 2:
-//            restaurant.type = string
-//        case 3:
-//            restaurant.location = string
-//        case 4:
-//            restaurant.phone = string
-//        case 5:
-//            restaurant.description = string
-//        default:
-//            fatalError("Failed to change restaurant info")
-//        }
-//        return true
-//    }
-    
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        switch textField.tag {
-//        case 1:
-//            restaurant.name = textField.text ?? ""
-//        case 2:
-//            restaurant.type = textField.text ?? ""
-//        case 3:
-//            restaurant.location = textField.text ?? ""
-//        case 4:
-//            restaurant.phone = textField.text ?? ""
-//        case 5:
-//            restaurant.description = textField.text ?? ""
-//        default:
-//            fatalError("Failed to change restaurant info")
-//        }
-//        return true
-//    }
-    
     //MARK: - UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
