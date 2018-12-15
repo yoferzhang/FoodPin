@@ -75,10 +75,7 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let detailViewController = YQRestaurantDetailViewController.init(restaurant: searchControllerIsActive() ? searchResults[indexPath.row] : restaurantInfoArray[indexPath.row])
-        
-        if searchControllerIsActive() {
-//            currentViewController()?.dismiss(animated: false, completion: nil)
-        }
+
         currentNavigationController().pushViewController(detailViewController, animated: true)
 
     }
