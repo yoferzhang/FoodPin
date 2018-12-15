@@ -28,7 +28,7 @@ class YQRestaurantReviewViewController: UIViewController {
 
     var delegate: YQRestaurantReviewViewControllerDelegate!
     
-    var restaurant: Restaurant!
+    var restaurant: RestaurantMO!
     var backgroundImageView: UIImageView!
     var closeButton: UIButton!
     var rateButoons: Array<UIButton>!
@@ -86,7 +86,10 @@ class YQRestaurantReviewViewController: UIViewController {
     
     func initializeView() {
         backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        backgroundImageView.image = UIImage(named: restaurant.name)
+        if let restaurantImage = restaurant.image {
+            backgroundImageView.image = UIImage(data: restaurantImage as Data)
+
+        }
         
         // 加一个毛玻璃效果
         let blurEffect = UIBlurEffect(style: .dark)

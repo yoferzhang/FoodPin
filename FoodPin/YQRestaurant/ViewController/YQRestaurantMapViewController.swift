@@ -21,7 +21,7 @@ class YQRestaurantMapViewController: UIViewController, MKMapViewDelegate {
     var mapView: MKMapView!
     var closeButton: UIButton!
     
-    var restaurant: Restaurant!
+    var restaurant: RestaurantMO!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +49,9 @@ class YQRestaurantMapViewController: UIViewController, MKMapViewDelegate {
     func configure() {
         let geoCoder = CLGeocoder()
         
-        print(restaurant.location)
+        print(restaurant.location!)
         
-        geoCoder.geocodeAddressString(restaurant.location, completionHandler: {placemarks, error in
+        geoCoder.geocodeAddressString(restaurant.location!, completionHandler: {placemarks, error in
             if let error = error {
                 print(error.localizedDescription)
                 return

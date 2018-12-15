@@ -66,9 +66,9 @@ class YQRestaurantDetailIconTextCell: UITableViewCell {
     
     // MARK: - Helper Method
     /// 类方法返回cell的高
-    class func heightForIconTextCell(image: String, text: String) -> CGFloat {
+    class func heightForIconTextCell(image: Data, text: String) -> CGFloat {
         let iconImageView = UIImageView(frame: CGRect.zero)
-        iconImageView.image = UIImage(named: image)
+        iconImageView.image = UIImage(data: image)
         iconImageView.sizeToFit()
         iconImageView.frame = CGRect(x: Constants.leftMarginOfIconImage, y: 0, width: iconImageView.frame.width, height: iconImageView.frame.height)
 

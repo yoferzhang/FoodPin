@@ -65,8 +65,10 @@ class YQRestaurantCellTableViewCell: UITableViewCell {
 
     }
     
-    func setData(restaurant: Restaurant) {
-        thumbnailImageView.image = UIImage(named: restaurant.name)
+    func setData(restaurant: RestaurantMO) {
+        if let restaurantImage = restaurant.image {
+            thumbnailImageView.image = UIImage(data: restaurantImage as Data)
+        }
         
         let labelWidth = self.bounds.width - thumbnailImageView.frame.maxX - Constants.marginOfLabel - Constants.marginOfLabel;
         

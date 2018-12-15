@@ -17,7 +17,7 @@ import UIKit
 class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, YQRestaurantReviewViewControllerDelegate {
     
 
-    var restaurant: Restaurant!
+    var restaurant: RestaurantMO!
     
     var detailTableView: UITableView!
     var headerView: UIImageView!
@@ -27,7 +27,7 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     var heartImageView: UIImageView!
     var ratingImageView: UIImageView!
     
-    init(restaurant: Restaurant) {
+    init(restaurant: RestaurantMO) {
         super.init(nibName: nil, bundle: nil)
         self.restaurant = restaurant
     }
@@ -71,7 +71,9 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     func initHeaderView() {
         headerView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 350))
         headerView.contentMode = .scaleAspectFill
-        headerView.image = UIImage(named: restaurant.name)
+        if let restaurantImage = restaurant.image {
+            headerView.image = UIImage(data: restaurantImage as Data)
+        }
         headerView.layer.masksToBounds = true
         
         headerMaskView = UIView(frame: headerView.bounds)
@@ -111,7 +113,7 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         headerView.addSubview(nameLabel)
         
         ratingImageView = UIImageView(frame: CGRect.zero)
-        refreshRatingImageView(rateImage: restaurant.rating)
+        refreshRatingImageView(rateImage: restaurant.rating!)
         headerView.addSubview(ratingImageView)
         
         detailTableView.tableHeaderView = headerView
@@ -144,17 +146,17 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: YQRestaurantDetailIconTextCell.self), for: indexPath) as! YQRestaurantDetailIconTextCell
-            cell .setData(imageName: "phone", detailText: restaurant.phone)
+            cell .setData(imageName: "phone", detailText: restaurant.phone!)
             cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: YQRestaurantDetailIconTextCell.self), for: indexPath) as! YQRestaurantDetailIconTextCell
-            cell .setData(imageName: "map", detailText: restaurant.location)
+            cell .setData(imageName: "map", detailText: restaurant.location!)
             cell.selectionStyle = .none
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: YQReataurantDetailTextCell.self), for: indexPath) as! YQReataurantDetailTextCell
-            cell .setData(detailText: restaurant.description)
+            cell .setData(detailText: restaurant.summary!)
             cell.selectionStyle = .none
             return cell
         case 3:
@@ -171,9 +173,9 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image, text: restaurant.phone)
+            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image!, text: restaurant.phone!)
         case 1:
-            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image, text: restaurant.location)
+            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image!, text: restaurant.location!)
         case 2:
             return YQReataurantDetailTextCell.heightForTextCell(restaurant: restaurant)
         case 3:

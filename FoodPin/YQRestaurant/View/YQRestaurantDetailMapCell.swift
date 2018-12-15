@@ -24,7 +24,7 @@ class YQRestaurantDetailMapCell: UITableViewCell {
     var separatorView: UIView!
     var mapView: MKMapView!
     
-    var restaurant: Restaurant!
+    var restaurant: RestaurantMO!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,13 +72,13 @@ class YQRestaurantDetailMapCell: UITableViewCell {
         self.currentViewController()?.present(mapVC, animated: true, completion: nil)
     }
     
-    func configure(restaurant: Restaurant) {
+    func configure(restaurant: RestaurantMO) {
         self.restaurant = restaurant
         let geoCoder = CLGeocoder()
         
-        print(restaurant.location)
+        print(restaurant.location!)
         
-        geoCoder.geocodeAddressString(restaurant.location, completionHandler: {placemarks, error in
+        geoCoder.geocodeAddressString(restaurant.location!, completionHandler: {placemarks, error in
             if let error = error {
                 print(error.localizedDescription)
                 return

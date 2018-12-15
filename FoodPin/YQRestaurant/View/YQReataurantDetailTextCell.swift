@@ -60,10 +60,10 @@ class YQReataurantDetailTextCell: UITableViewCell {
     
     // MARK: - Helper Method
     /// 类方法返回cell的高
-    class func heightForTextCell(restaurant: Restaurant) -> CGFloat {
+    class func heightForTextCell(restaurant: RestaurantMO) -> CGFloat {
         
         let label = UILabel(frame: CGRect.zero)
-        label.text = restaurant.description
+        label.text = restaurant.summary!
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         let labelSize = label.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - DetailTextCellConstants.leftMarginOfLabel * 2, height: CGFloat(MAXFLOAT)))

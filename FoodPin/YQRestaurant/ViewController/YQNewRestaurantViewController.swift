@@ -10,9 +10,16 @@ import UIKit
 
 class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    var restaurant: Restaurant!
+    var restaurant: RestaurantMO!
     var editTableView: UITableView!
     var photoImageView: UIImageView!
+    var imageData: Data!
+    
+    var nameTextField: UITextField!
+    var typeTextField: UITextField!
+    var addressTextField: UITextField!
+    var photoTextField: UITextField!
+    var descriptionTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +48,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func initData() {
-        restaurant = Restaurant()
+        restaurant = RestaurantMO()
     }
     
     func initViews() {
@@ -77,6 +84,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             cell.textField.becomeFirstResponder()
             cell.textField.tag = 1
             cell.textField.delegate = self
+            nameTextField = cell.textField
             cell.selectionStyle = .none
             return cell
         case 2:
@@ -84,6 +92,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             cell.configure(title: "TYPE", placeholder: "Fill in the restaurant type")
             cell.textField.tag = 2
             cell.textField.delegate = self
+            typeTextField = cell.textField
             cell.selectionStyle = .none
             return cell
         case 3:
@@ -91,6 +100,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             cell.configure(title: "ADDRESS", placeholder: "Fill in the restaurant address")
             cell.textField.tag = 3
             cell.textField.delegate = self
+            addressTextField = cell.textField
             cell.selectionStyle = .none
             return cell
         case 4:
@@ -98,6 +108,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             cell.configure(title: "PHONE", placeholder: "Fill in the restaurant phone")
             cell.textField.tag = 4
             cell.textField.delegate = self
+            photoTextField = cell.textField
             cell.selectionStyle = .none
             return cell
         case 5:
@@ -105,6 +116,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             cell.configure(title: "DESCRIPTION", placeholder: "Fill in the restaurant description")
             cell.textField.tag = 5
             cell.textField.delegate = self
+            descriptionTextField = cell.textField
             cell.selectionStyle = .none
             return cell
             
@@ -189,23 +201,23 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
 //        return true
 //    }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        switch textField.tag {
-        case 1:
-            restaurant.name = textField.text ?? ""
-        case 2:
-            restaurant.type = textField.text ?? ""
-        case 3:
-            restaurant.location = textField.text ?? ""
-        case 4:
-            restaurant.phone = textField.text ?? ""
-        case 5:
-            restaurant.description = textField.text ?? ""
-        default:
-            fatalError("Failed to change restaurant info")
-        }
-        return true
-    }
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        switch textField.tag {
+//        case 1:
+//            restaurant.name = textField.text ?? ""
+//        case 2:
+//            restaurant.type = textField.text ?? ""
+//        case 3:
+//            restaurant.location = textField.text ?? ""
+//        case 4:
+//            restaurant.phone = textField.text ?? ""
+//        case 5:
+//            restaurant.description = textField.text ?? ""
+//        default:
+//            fatalError("Failed to change restaurant info")
+//        }
+//        return true
+//    }
     
     //MARK: - UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -213,6 +225,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             photoImageView?.image = selectedImage
             photoImageView?.contentMode = .scaleAspectFill
             photoImageView?.clipsToBounds = true
+            imageData = selectedImage.pngData()
         }
         
         dismiss(animated: true, completion: nil)
@@ -220,7 +233,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
 
     //MARK: - 点击事件
     @objc func onClickNavRightButton(recognizer: UITapGestureRecognizer) {
-        if restaurant.name.count <= 0 || restaurant.type.count <= 0 || restaurant.location.count <= 0 || restaurant.phone.count <= 0 || restaurant.description.count <= 0 {
+        if nameTextField.text!.count <= 0 || typeTextField.text!.count <= 0 || addressTextField.text!.count <= 0 || photoTextField.text!.count <= 0 || descriptionTextField.text!.count <= 0 || imageData == nil {
             
             let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             let alertViewController = UIAlertController(title: "Oops", message: "We can't proceed because ont of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
@@ -229,11 +242,23 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             
             present(alertViewController, animated: true, completion: nil)
         } else {
-            dismiss(animated: true) {
-                if super.isKind(of: ViewController.self) {
-                    var vc = super as? ViewController
-                }
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
+                restaurant.name = nameTextField.text
+                restaurant.type = typeTextField.text
+                restaurant.location = addressTextField.text
+                restaurant.phone = photoTextField.text
+                restaurant.summary = descriptionTextField.text
+                restaurant.isVisited = false
+                restaurant.image = imageData
+                restaurant.rating = ""
+                
+                print("Saving new data to context")
+                appDelegate.saveContext()
+                
+                self.navigationController?.popViewController(animated: true)
             }
+            
         }
     }
 }
