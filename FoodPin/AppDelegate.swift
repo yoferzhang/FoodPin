@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func aboutViewController() -> UIViewController {
-        let rootViewController = UIViewController()
+        let rootViewController = YQRestaurantAboutController()
         return UINavigationController(rootViewController: rootViewController)
     }
     

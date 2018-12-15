@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class YQRestaurantAboutController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -36,6 +37,8 @@ class YQRestaurantAboutController: UIViewController, UITableViewDelegate, UITabl
         aboutTableView.register(YQRestaurantDetailIconTextCell.self, forCellReuseIdentifier: String(describing: YQRestaurantDetailIconTextCell.self))
         
         view.addSubview(aboutTableView)
+        
+        initTableViewHeaderView()
     }
     
     func initTableViewHeaderView() {
@@ -101,7 +104,31 @@ class YQRestaurantAboutController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         
+        let link = sectionContent[indexPath.section][indexPath.row].link
+        
+        switch indexPath.section {
+        case 0:
+            if indexPath.row == 0 {
+                if let url = URL(string: link) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            } else if indexPath.row == 1 {
+                if link.count > 0 {
+                    let webVC = YQWebViewController()
+                    webVC.targetURL = link
+                    self.navigationController?.pushViewController(webVC, animated: true)
+                }
+            }
+        case 1:
+            if let url = URL(string: link) {
+                let safariController = SFSafariViewController(url: url)
+                self.navigationController?.pushViewController(safariController, animated: true)
+            }
+        default:
+            break
+        }
     }
 
 }
