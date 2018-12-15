@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var baseNavigationController: UINavigationController!
+    var baseTabBarController: UITabBarController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,14 +23,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         baseNavigationController = UINavigationController(rootViewController: rootViewController)
         rootViewController.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        
+        baseTabBarController = UITabBarController(nibName: nil, bundle: nil)
+        baseTabBarController.setViewControllers([baseNavigationController], animated: false)
+//        let restaurantTabBarItem = UITabBarItem(title: "restaurant", image: nil, tag: 0)
+//        baseTabBarController.tabBar.setItems([restaurantTabBarItem], animated: false)
+        let tabBarItems = baseTabBarController.tabBar.items
+        let favoritesTabBarItem = tabBarItems?[0]
+        favoritesTabBarItem?.title = "Favorites"
+        favoritesTabBarItem?.image = UIImage(named: "favorite")
+        
+        //        favoritesTabBarItem?.image = UIImage(named: "discover")
+//        favoritesTabBarItem?.image = UIImage(named: "about")
+        
+
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        window?.rootViewController = baseNavigationController
+        window?.rootViewController = baseTabBarController
         window?.makeKeyAndVisible()
         
         let backButtonImage = UIImage(named: "back")
         UINavigationBar.appearance().backIndicatorImage = backButtonImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
+        
+        UITabBar.appearance().tintColor = .orange
+        UITabBar.appearance().barTintColor = .black
         
         return true
     }
