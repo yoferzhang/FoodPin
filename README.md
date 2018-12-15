@@ -173,3 +173,22 @@ extension UINavigationController {
             comletionHandler(true)
         }
 ```
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121502.gif)
+
+
+更新rating 表情，同样是数据库级别的更新，加 `appDelegate.saveContext()` 就可以
+
+```swift
+    //MARK: - YQRestaurantReviewViewControllerDelegate
+    func onClickRateButtonInReviewVC(rate: RateModel) {
+        restaurant.rating = rate.image
+        refreshRatingImageView(rateImage: rate.image)
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            appDelegate.saveContext()
+        }
+    }
+```
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018121503.gif)
