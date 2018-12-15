@@ -14,6 +14,7 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
     let cellIdentifier = "YQRestaurantCellTableViewCell"
     
     var restaurantInfoArray: [RestaurantMO]!
+    var searchResults: [RestaurantMO]!
     
     var mainTableView: UITableView!
     
@@ -41,17 +42,21 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
     
     // MARK: - tableViewDelegate & tableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.restaurantInfoArray.count
+        if searchControllerIsActive() {
+            return searchResults.count
+        } else {
+            return restaurantInfoArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: YQRestaurantCellTableViewCell! = (tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! YQRestaurantCellTableViewCell)
         
-        if indexPath.row < self.restaurantInfoArray.count {
-            cell.setData(restaurant: self.restaurantInfoArray[indexPath.row])
+        if indexPath.row < (searchControllerIsActive() ? searchResults.count : restaurantInfoArray.count) {
+            cell.setData(restaurant: searchControllerIsActive() ? searchResults[indexPath.row] :  restaurantInfoArray[indexPath.row])
             
-            let restaurant = self.restaurantInfoArray[indexPath.row]
+            let restaurant = searchControllerIsActive() ? searchResults[indexPath.row] : restaurantInfoArray[indexPath.row]
             if restaurant.isVisited {
                 cell.accessoryType = .checkmark
             } else {
@@ -69,9 +74,16 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let detailViewController = YQRestaurantDetailViewController.init(restaurant: restaurantInfoArray[indexPath.row])
+        let detailViewController = YQRestaurantDetailViewController.init(restaurant: searchControllerIsActive() ? searchResults[indexPath.row] : restaurantInfoArray[indexPath.row])
         
-        currentViewController()?.show(detailViewController, sender: nil)
+        if searchControllerIsActive() {
+            if let nav = UIApplication.shared.keyWindow?.rootViewController {
+            }
+            currentNavigationController()?.pushViewController(detailViewController, animated: true)
+        } else {
+            currentViewController()?.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+//        currentViewController()?.show(detailViewController, sender: nil)
         
     }
     
@@ -162,6 +174,15 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
         return swipeConfiguration
     }
     
+    // 搜索状态不准编辑
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchControllerIsActive() {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     // MARK: - Helper Method
     func currentViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
@@ -174,6 +195,30 @@ class YQRestaurantView: UIView, UITableViewDelegate, UITableViewDataSource  {
             return currentViewController(base: presented)
         }
         return base
+    }
+
+    func currentNavigationController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UINavigationController? {
+        if let nav = base?.navigationController {
+            return nav
+        }
+        if let tab = base as? UITabBarController {
+            return currentNavigationController(base: tab.selectedViewController)
+        }
+        if let presented = base?.presentedViewController {
+            return currentNavigationController(base: presented)
+        }
+        return base as? UINavigationController
+    }
+    
+    func searchControllerIsActive() -> Bool {
+        var searchIsActive = false
+        if let currentVC = self.currentViewController() as? UISearchController {
+            if currentVC.isActive {
+                searchIsActive = true
+            }
+        }
+        
+        return searchIsActive
     }
     
     

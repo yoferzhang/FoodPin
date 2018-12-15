@@ -1,4 +1,4 @@
-Swift练习demo
+## Swift练习demo
 
 
 效果演示
@@ -192,3 +192,6 @@ extension UINavigationController {
 ```
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121503.gif)
+
+添加搜索栏，支持name搜索，搜索状态时禁止左右滑动的编辑态
+

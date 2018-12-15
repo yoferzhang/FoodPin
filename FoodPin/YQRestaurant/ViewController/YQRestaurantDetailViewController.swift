@@ -16,7 +16,6 @@ import UIKit
 
 class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, YQRestaurantReviewViewControllerDelegate {
     
-
     var restaurant: RestaurantMO!
     
     var detailTableView: UITableView!
@@ -40,15 +39,20 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
+        
+        
+        // Do any additional setup after loading the view.
+        configNav()
+        initDetailTableView()
+        
+    }
+    
+    func configNav() {
         navigationItem.largeTitleDisplayMode = .never
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = UIColor.white
-        
-        // Do any additional setup after loading the view.
-        initDetailTableView()
-        
     }
     
     func initDetailTableView() {
