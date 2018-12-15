@@ -179,9 +179,9 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image!, text: restaurant.phone!)
+            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: "photo", text: restaurant.phone!)
         case 1:
-            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: restaurant.image!, text: restaurant.location!)
+            return YQRestaurantDetailIconTextCell.heightForIconTextCell(image: "map", text: restaurant.location!)
         case 2:
             return YQReataurantDetailTextCell.heightForTextCell(restaurant: restaurant)
         case 3:
