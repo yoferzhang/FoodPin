@@ -201,7 +201,7 @@ extension UINavigationController {
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121505.png)
 
-About页面，分别用 `WKWebView` 和 `SFSafariViewController` 打开web页面
+About页面；使用元组；分别用 `WKWebView` 和 `SFSafariViewController` 打开web页面
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121506.gif)
 
