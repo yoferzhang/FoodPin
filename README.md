@@ -149,7 +149,7 @@ extension UINavigationController {
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121407.gif)
 
-改用CoreData存储数据，新建后局部刷新tableview
+改用 `CoreData` 存储数据，并用 `NSFetchedResultsController` 监听，新建后局部刷新首页 `tableview`
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121501.gif)
 
