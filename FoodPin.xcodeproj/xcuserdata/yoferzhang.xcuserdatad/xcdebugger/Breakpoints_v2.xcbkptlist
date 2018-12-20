@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodPin/YQRestaurant/Favorites/View/YQRestaurantView.swift"
-            timestampString = "566985417.148747"
+            timestampString = "566987050.976967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -138,13 +138,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodPin/YQRestaurant/Favorites/View/YQRestaurantView.swift"
-            timestampString = "566985417.148806"
+            timestampString = "566987050.977019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "194"
             endingLineNumber = "194"
             landmarkName = "currentNavigationController()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodPin/YQRestaurant/Favorites/ViewController/YQNewRestaurantViewController.swift"
+            timestampString = "566987050.977067"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "saveRecordToCloud(restaurant:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPin.YQNewRestaurantViewController.saveRecordToCloud(restaurant: Swift.Optional&lt;FoodPin.RestaurantMO&gt;) -&gt; ()"
+                  moduleName = "FoodPin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoferzhang/Study/20181023Swift/20181024PracticeCode/FoodPin/FoodPin/YQRestaurant/Favorites/ViewController/YQNewRestaurantViewController.swift"
+                  timestampString = "566987051.0729851"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "267"
+                  endingLineNumber = "267"
+                  offsetFromSymbolStart = "5392">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.CKRecord&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FoodPin.YQNewRestaurantViewController.saveRecordToCloud(restaurant: Swift.Optional&lt;FoodPin.RestaurantMO&gt;) -&gt; ()"
+                  moduleName = "FoodPin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoferzhang/Study/20181023Swift/20181024PracticeCode/FoodPin/FoodPin/YQRestaurant/Favorites/ViewController/YQNewRestaurantViewController.swift"
+                  timestampString = "566987051.074325"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
