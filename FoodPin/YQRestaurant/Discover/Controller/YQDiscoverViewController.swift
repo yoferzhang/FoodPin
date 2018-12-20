@@ -11,7 +11,7 @@ import CloudKit
 
 class YQDiscoverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
-    
+    private var imageCache = NSCache<CKRecord.ID, NSURL>()
     var restaurants: [CKRecord] = []
     var discoverTableView: UITableView!
     var spinner = UIActivityIndicatorView()
@@ -139,31 +139,43 @@ class YQDiscoverViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.imageView?.image = UIImage(named: "photo")
         
-        let publicDatabase = CKContainer.default().publicCloudDatabase
-        let fetchRecordsImageOperation = CKFetchRecordsOperation(recordIDs: [restaurant.recordID])
-        fetchRecordsImageOperation.desiredKeys = ["image"]
-        fetchRecordsImageOperation.queuePriority = .veryHigh
-        
-        fetchRecordsImageOperation.perRecordCompletionBlock = {[unowned self] (record, recordID, error) -> Void in
-            if let error = error {
-                print("Failed to get restaurant image: \(error.localizedDescription)")
-                return
+        if let iamgeFileURL = imageCache.object(forKey: restaurant.recordID) {
+            print("Get image from cahce")
+            if let iamgeData = try? Data.init(contentsOf: iamgeFileURL as URL) {
+                cell.imageView?.image = UIImage(data: iamgeData)
             }
             
-            if let restaurantRecord = record,
-                let image = restaurantRecord.object(forKey: "image"),
-                let imageAsset = image as? CKAsset {
+        } else {
+            let publicDatabase = CKContainer.default().publicCloudDatabase
+            let fetchRecordsImageOperation = CKFetchRecordsOperation(recordIDs: [restaurant.recordID])
+            fetchRecordsImageOperation.desiredKeys = ["image"]
+            fetchRecordsImageOperation.queuePriority = .veryHigh
+            
+            fetchRecordsImageOperation.perRecordCompletionBlock = {[unowned self] (record, recordID, error) -> Void in
+                if let error = error {
+                    print("Failed to get restaurant image: \(error.localizedDescription)")
+                    return
+                }
                 
-                if let iamgeData = try? Data.init(contentsOf: imageAsset.fileURL) {
-                    DispatchQueue.main.async {
-                        cell.imageView?.image = UIImage(data: iamgeData)
-                        cell.setNeedsLayout()
+                if let restaurantRecord = record,
+                    let image = restaurantRecord.object(forKey: "image"),
+                    let imageAsset = image as? CKAsset {
+                    
+                    if let iamgeData = try? Data.init(contentsOf: imageAsset.fileURL) {
+                        DispatchQueue.main.async {
+                            cell.imageView?.image = UIImage(data: iamgeData)
+                            cell.setNeedsLayout()
+                        }
+                        
+                        self .imageCache.setObject(imageAsset.fileURL as NSURL, forKey: restaurant.recordID)
                     }
                 }
             }
+            
+            publicDatabase.add(fetchRecordsImageOperation)
         }
         
-        publicDatabase.add(fetchRecordsImageOperation)
+       
         
         return cell
     }
