@@ -147,5 +147,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodPin/YQRestaurant/Discover/Controller/YQDiscoverViewController.swift"
+            timestampString = "566983130.438271"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "fetchRecordsFromCloud()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;__C.CKQueryCursor&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FoodPin.YQDiscoverViewController.fetchRecordsFromCloud() -&gt; ()"
+                  moduleName = "FoodPin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoferzhang/Study/20181023Swift/20181024PracticeCode/FoodPin/FoodPin/YQRestaurant/Discover/Controller/YQDiscoverViewController.swift"
+                  timestampString = "566983130.5241261"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "1061">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 (Swift.Optional&lt;__C.CKQueryCursor&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FoodPin.YQDiscoverViewController.fetchRecordsFromCloud() -&gt; ()"
+                  moduleName = "FoodPin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoferzhang/Study/20181023Swift/20181024PracticeCode/FoodPin/FoodPin/YQRestaurant/Discover/Controller/YQDiscoverViewController.swift"
+                  timestampString = "566983130.5262949"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "18">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

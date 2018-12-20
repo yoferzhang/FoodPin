@@ -205,3 +205,72 @@ About页面；使用元组；分别用 `WKWebView` 和 `SFSafariViewController` 
 
 ![](https://github.com/yoferzhang/blogImage/blob/master/2018121506.gif)
 
+使用iCloud，在 CloudKit Dashboard 中创建数据；原本是想上传图片，但 Dashboard 一上传那图片就 停止响应了，苹果这个做的有点坑==
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018122001.png)
+
+然后用 Convenience API:
+
+
+```swift
+    func fetchRecordsFromCloud() {
+        let cloudContainer = CKContainer.default()
+        let publicDatabase = cloudContainer.publicCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+
+        publicDatabase.perform(query, inZoneWith: nil) { (results, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            if let results = results {
+                print("Completed the download of Restaurant data")
+                self.restaurants = results
+                DispatchQueue.main.async(execute: {
+                    self.discoverTableView.reloadData()
+                })
+            }
+        }
+    }
+```
+
+代码中拉取到的数据结构：
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018122002.png)
+
+改用 Operational API。因为 Convenience API 不能只请求携带某些字段，它会把所有数据都完整拉下来
+
+```swift
+    func fetchRecordsFromCloud() {
+        let cloudContainer = CKContainer.default()
+        let publicDatabase = cloudContainer.publicCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+        
+        let queryOperation = CKQueryOperation(query: query)
+        queryOperation.desiredKeys = ["name", "iamge"]
+        queryOperation.queuePriority = .veryHigh
+        queryOperation.resultsLimit = 50
+        queryOperation.recordFetchedBlock = { (record) -> Void in
+            self.restaurants.append(record)
+        }
+        
+        queryOperation.queryCompletionBlock = { [unowned self] (cursor, error) -> Void in
+            if let error = error {
+                print("Failed to get data from iCloud -\(error.localizedDescription)")
+                
+                return
+            }
+            
+            print("Successfully retrieve the data from iCloud")
+            DispatchQueue.main.async(execute: {
+                self.discoverTableView.reloadData()
+            })
+        }
+        
+        publicDatabase.add(queryOperation)
+    }
+```
+
