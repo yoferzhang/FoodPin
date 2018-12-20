@@ -274,3 +274,7 @@ About页面；使用元组；分别用 `WKWebView` 和 `SFSafariViewController` 
     }
 ```
 
+使用 `UIActivityIndicatorView` 和 `UIRefreshControl`
+
+![](https://github.com/yoferzhang/blogImage/blob/master/2018122003.gif)
+

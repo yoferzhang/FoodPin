@@ -148,7 +148,7 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
         let leftItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = leftItem
         
-        let rightItem = UIBarButtonItem(image: UIImage(named: "plus"), style: .plain, target: self, action: #selector(YQRestaurantTableViewController.onClickNavRightButton(recognizer:)))
+        let rightItem = UIBarButtonItem(image: UIImage(named: "plus"), style: .plain, target: self, action: #selector(onClickNavRightButton))
         self.navigationItem.rightBarButtonItem = rightItem
         
         navigationController?.hidesBarsOnSwipe = false

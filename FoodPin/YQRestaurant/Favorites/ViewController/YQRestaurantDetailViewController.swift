@@ -145,7 +145,7 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         rateButton.backgroundColor = .red
         rateButton.layer.masksToBounds = true
         rateButton.layer.cornerRadius = rateButton.frame.height * 0.5
-        rateButton.addTarget(self, action: #selector(YQRestaurantDetailViewController.onClickRateButton(recognizer:)), for: .touchUpInside)
+        rateButton.addTarget(self, action: #selector(onClickRateButton), for: .touchUpInside)
         footerView.addSubview(rateButton)
         
         detailTableView.tableFooterView = footerView

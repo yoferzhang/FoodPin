@@ -62,7 +62,7 @@ class YQRestaurantDetailMapCell: UITableViewCell {
         mapView.isScrollEnabled = false
         mapView.isPitchEnabled = false
         mapView.isZoomEnabled = false
-        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(YQRestaurantDetailMapCell.onClickMapView(recognizer:))))
+        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickMapView)))
         self.contentView.addSubview(mapView)
     }
     

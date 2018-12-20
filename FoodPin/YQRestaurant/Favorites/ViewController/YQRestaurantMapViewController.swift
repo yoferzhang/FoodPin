@@ -42,7 +42,7 @@ class YQRestaurantMapViewController: UIViewController, MKMapViewDelegate {
         
         closeButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - MapViewControllerConstants.leftMarginOfCloseButton - MapViewControllerConstants.widthOfCloseButton, y: 30, width: MapViewControllerConstants.widthOfCloseButton, height: MapViewControllerConstants.widthOfCloseButton))
         closeButton.setImage(UIImage(named: "closeButton"), for: .normal)
-        closeButton.addTarget(self, action: #selector(YQRestaurantMapViewController.onClickCloseButton(recognizer:)), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(onClickCloseButton), for: .touchUpInside)
         self.view.addSubview(closeButton)
     }
     

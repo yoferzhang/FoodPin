@@ -101,7 +101,7 @@ class YQRestaurantReviewViewController: UIViewController {
         
         closeButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - ReviewViewControllerConstants.leftMarginOfCloseButton - ReviewViewControllerConstants.widthOfCloseButton, y: 30, width: ReviewViewControllerConstants.widthOfCloseButton, height: ReviewViewControllerConstants.widthOfCloseButton))
         closeButton.setImage(UIImage(named: "closeButton"), for: .normal)
-        closeButton.addTarget(self, action: #selector(YQRestaurantReviewViewController.onClickCloseButton(recognizer:)), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(onClickCloseButton), for: .touchUpInside)
         self.view.addSubview(closeButton)
         
         rateButoons = Array()
@@ -120,7 +120,7 @@ class YQRestaurantReviewViewController: UIViewController {
             rateButton.alpha = 0
             rateButton.transform = moveScaleTransform
             rateButton.tag = index
-            rateButton.addTarget(self, action: #selector(YQRestaurantReviewViewController.onClickRateButton(view:)), for: .touchUpInside)
+            rateButton.addTarget(self, action: #selector(onClickRateButton), for: .touchUpInside)
             
             rateButoons.append(rateButton)
             view.addSubview(rateButton)

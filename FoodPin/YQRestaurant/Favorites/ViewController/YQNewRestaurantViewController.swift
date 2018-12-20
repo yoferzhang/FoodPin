@@ -43,7 +43,7 @@ class YQNewRestaurantViewController: UIViewController, UITableViewDelegate, UITa
             NSAttributedString.Key.foregroundColor: UIColor.orange, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 35.0)
         ]
         
-        let rightItem = UIBarButtonItem(image: UIImage(named: "save"), style: .plain, target: self, action: #selector(YQNewRestaurantViewController.onClickNavRightButton(recognizer:)))
+        let rightItem = UIBarButtonItem(image: UIImage(named: "save"), style: .plain, target: self, action: #selector(onClickNavRightButton))
         self.navigationItem.rightBarButtonItem = rightItem
     }
     

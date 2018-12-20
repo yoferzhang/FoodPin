@@ -32,15 +32,10 @@ class YQDiscoverViewController: UIViewController, UITableViewDelegate, UITableVi
         navigationController?.navigationBar.tintColor = UIColor.orange
         
         // iOS11之后这个属性可以让导航栏往下滑动的时候title变大
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        
-        // 设置导航栏title的大字体状态的颜色
-        if let customFont = UIFont(name: "PingFangSC-Medium", size: 40.0) {
-            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.orange, NSAttributedString.Key.font: customFont]
-        }
         
         // 去掉返回按钮的文字
         let leftItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
@@ -57,7 +52,14 @@ class YQDiscoverViewController: UIViewController, UITableViewDelegate, UITableVi
         discoverTableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         
         view.addSubview(discoverTableView)
-        
+        configureRefreshControl()
+    }
+    
+    func configureRefreshControl() {
+        discoverTableView.refreshControl = UIRefreshControl()
+        discoverTableView.refreshControl?.backgroundColor = .white
+        discoverTableView.refreshControl?.tintColor = .gray
+        discoverTableView.refreshControl?.addTarget(self, action: #selector(fetchRecordsFromCloud), for: UIControl.Event.valueChanged)
     }
     
     func initSpinner() {
@@ -94,7 +96,10 @@ class YQDiscoverViewController: UIViewController, UITableViewDelegate, UITableVi
 //        }
 //    }
     
-    func fetchRecordsFromCloud() {
+    @objc func fetchRecordsFromCloud() {
+        restaurants.removeAll()
+        discoverTableView.reloadData()
+        
         let cloudContainer = CKContainer.default()
         let publicDatabase = cloudContainer.publicCloudDatabase
         let predicate = NSPredicate(value: true)
@@ -119,7 +124,14 @@ class YQDiscoverViewController: UIViewController, UITableViewDelegate, UITableVi
             DispatchQueue.main.async(execute: {
                 self.spinner.stopAnimating()
                 self.discoverTableView.reloadData()
+                
+                if let refreshControl = self.discoverTableView.refreshControl {
+                    if refreshControl.isRefreshing {
+                        refreshControl.endRefreshing()
+                    }
+                }
             })
+            
         }
         
         publicDatabase.add(queryOperation)
