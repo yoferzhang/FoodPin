@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func discoverViewController() -> UIViewController {
-        let rootViewController = UIViewController()
+        let rootViewController = YQDiscoverViewController()
         return UINavigationController(rootViewController: rootViewController)
     }
     

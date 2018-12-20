@@ -35,6 +35,13 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = true
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +62,8 @@ class YQRestaurantDetailViewController: UIViewController, UITableViewDelegate, U
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = UIColor.white
+        
+        self.hidesBottomBarWhenPushed = true
     }
     
     func initDetailTableView() {

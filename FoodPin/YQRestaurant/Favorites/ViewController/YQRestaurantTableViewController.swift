@@ -47,6 +47,9 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
     var searchResults: [RestaurantMO] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
 
     }
     
@@ -149,6 +152,7 @@ class YQRestaurantTableViewController: UIViewController, NSFetchedResultsControl
         self.navigationItem.rightBarButtonItem = rightItem
         
         navigationController?.hidesBarsOnSwipe = false
+        
     }
     
     func initSearchBar() {
