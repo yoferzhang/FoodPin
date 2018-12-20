@@ -70,10 +70,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     title = "Favorites"
                     image = "favorite"
                 case 1:
-                    title = "Discover"
+                    title = NSLocalizedString("Discover", comment: "Discover") 
                     image = "discover"
                 case 2:
-                    title = "About"
+                    title = NSLocalizedString("About", comment: "About")
                     image = "about"
                 default:
                     return

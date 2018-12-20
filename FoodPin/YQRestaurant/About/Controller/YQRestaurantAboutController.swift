@@ -13,12 +13,12 @@ class YQRestaurantAboutController: UIViewController, UITableViewDelegate, UITabl
 
     var aboutTableView: UITableView!
 
-    var sectionTitles = ["Feedback", "Follow Us"]
-    var sectionContent = [[(image: "store", text: "Rate us on App Store", link: "https://www.apple.com/itunes/charts/paid-apps/"),
-                           (image: "chat", text: "Tell us your feedback on my blog", link: "http://yoferzhang.com/")],
-                           [(image: "twitter", text: "Twitter", link: "https://twitter.com/LuciferZhangyq"),
-                           (image: "facebook", text: "Fackbook", link: "https://www.facebook.com/luciferzhang"),
-                           (image: "instagram", text: "Instagram", link: "https://www.instagram.com/yoferzhang/"),]]
+    var sectionTitles = [NSLocalizedString("Feedback", comment: "feedback"), NSLocalizedString("Follow Us", comment: "Follow Us")]
+    var sectionContent = [[(image: "store", text: NSLocalizedString("Rate us on App Store", comment: "Rate us on App Store"), link: "https://www.apple.com/itunes/charts/paid-apps/"),
+                           (image: "chat", text: NSLocalizedString("Tell us your feedback on my blog", comment: "Tell us your feedback on my blog") , link: "http://yoferzhang.com/")],
+                           [(image: "twitter", text: NSLocalizedString("Twitter", comment: "Twitter") , link: "https://twitter.com/LuciferZhangyq"),
+                           (image: "facebook", text: NSLocalizedString("Fackbook", comment: "Fackbook") , link: "https://www.facebook.com/luciferzhang"),
+                           (image: "instagram", text: NSLocalizedString("Instagram", comment: "Instagram") , link: "https://www.instagram.com/yoferzhang/"),]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
